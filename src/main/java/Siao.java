@@ -7,15 +7,20 @@ public class Siao {
         System.out.println("---------------------------------");
     }
 
-    public static void printList(String[] list) {
+    public static void printList(Task[] list) {
         printDividerLine();
-        int j = 1;
+        int indexNumber = 1;
         for (int i = 0; i < list.length; i++) {
-            System.out.printf(j + "." + list[i] + "\n");
-            j++;
+            if(list[i] == null) {
+                System.out.println("-----------End Of List-----------");
+                break;
+            }
+            System.out.printf("%d. [%s] %s\n", indexNumber, list[i].getStatusIcon(), list[i].getDescription());
+            indexNumber++;
         }
         printDividerLine();
     }
+
 
     public static void printAction(String action){
         printDividerLine();
@@ -24,29 +29,50 @@ public class Siao {
     }
 
     public static void main(String[] args) {
-      System.out.println("Hello! I'm Siao!!");
+        System.out.println("Hello! I'm Siao!!");
 
-      Scanner input = new Scanner(System.in);
-      System.out.println("What can I do for you?");
-      String line = input.nextLine();
+        Scanner input = new Scanner(System.in);
+        System.out.println("What can I do for you?");
+        String line = input.nextLine();
 
-      String[] list = new String[100];
-      int matchCount = 0;
+        Task[] list = new Task[100];
+        int matchCount = 0;
 
-      while(!line.equalsIgnoreCase("bye")){
-          printAction(line);
-          list[matchCount] = line;
-          matchCount++;
-          line = input.nextLine();
+        while(!line.equalsIgnoreCase("bye")){
+            String[] splitInput = line.split(" ");
+            String command = splitInput[0];
 
-          if (line.equalsIgnoreCase("list")){
-              printList(Arrays.copyOf(list, matchCount));
-              line = input.nextLine();
-          }
-      }
+            switch (command){
 
+                case "list":
+                    printList(list);
+                    line = input.nextLine();
+                    break;
 
-      System.out.println("---------------------------------");
-      System.out.println("Bye. Hope to see you again soon!");
+                case "mark":
+                    int markIndex = Integer.parseInt(splitInput[1]) - 1;
+                    list[markIndex].markDone();
+                    list[markIndex].printMarkDone();
+                    line = input.nextLine();
+                    break;
+
+                case "unmark":
+                    int unmarkIndex = Integer.parseInt(splitInput[1]) - 1;
+                    list[unmarkIndex].markUndone();
+                    list[unmarkIndex].printMarkUndone();
+                    line = input.nextLine();
+                    break;
+
+                default:
+                    list[matchCount] = new Task(line);
+                    matchCount++;
+                    printAction(line);
+                    line = input.nextLine();
+                    break;
+            }
+        }
+
+        System.out.println("---------------------------------");
+        System.out.println("Bye. Hope to see you again soon!");
     }
 }
