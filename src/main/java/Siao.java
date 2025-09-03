@@ -3,6 +3,12 @@ import java.util.Scanner;
 
 public class Siao {
 
+    public enum Label{
+        TODO,
+        EVENT,
+        DEADLINE
+    }
+
     public static void  printDividerLine(){
         System.out.println("---------------------------------");
     }
@@ -10,23 +16,17 @@ public class Siao {
     public static void printList(Task[] list) {
         printDividerLine();
         int indexNumber = 1;
-        for (int i = 0; i < list.length; i++) {
-            if(list[i] == null) {
+        for (Task task : list) {
+            if (task == null) {
                 System.out.println("-----------End Of List-----------");
                 break;
             }
-            System.out.printf("%d. [%s] %s\n", indexNumber, list[i].getStatusIcon(), list[i].getDescription());
+            System.out.printf("%d. [T][%s] %s\n", indexNumber, task.getStatusIcon(), task.getDescription());
             indexNumber++;
         }
         printDividerLine();
     }
 
-
-    public static void printAction(String action){
-        printDividerLine();
-        System.out.printf("added: " + action + "\n");
-        printDividerLine();
-    }
 
     public static void main(String[] args) {
         System.out.println("Hello! I'm Siao!!");
@@ -43,9 +43,16 @@ public class Siao {
             String command = splitInput[0];
 
             switch (command){
-
+// to add 3 more cases: TODO, EVENT and DEADLINE
                 case "list":
                     printList(list);
+                    line = input.nextLine();
+                    break;
+
+                case "todo":
+                    list[matchCount] = new Task(line);
+                    matchCount++;
+                    Todo.printAction(line);
                     line = input.nextLine();
                     break;
 
@@ -66,7 +73,7 @@ public class Siao {
                 default:
                     list[matchCount] = new Task(line);
                     matchCount++;
-                    printAction(line);
+                    System.out.println(line);
                     line = input.nextLine();
                     break;
             }
@@ -76,3 +83,14 @@ public class Siao {
         System.out.println("Bye. Hope to see you again soon!");
     }
 }
+
+/* New Idea:
+Everytime I input something, depending on the 1st word that I input, I will store the line into the task array
+The task array will create a String
+Each element in the String array will contain the following:
+    [Label of Task][Marker] "description"
+
+    Task class will only contain information about the Mark and the description
+    my subclasses will contain information about the label
+ */
+

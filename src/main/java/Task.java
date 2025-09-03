@@ -4,7 +4,7 @@ public class Task {
 
     public Task(String description) { // constructor of the task
         this.description = description;
-        this.isDone = false;
+        this.isDone = false; // to remove
     }
 
     public String getStatusIcon() {
@@ -35,6 +35,12 @@ public class Task {
     public void printMarkUndone() {
         System.out.println("Okay we haven't finished it yet!");
         System.out.printf("[%s] %s\n", getStatusIcon(), description);
+        Siao.printDividerLine();
+    }
+
+    public static void printAction(String action){
+        Siao.printDividerLine();
+        System.out.printf("added: " + action + "\n");
         Siao.printDividerLine();
     }
 
