@@ -14,6 +14,10 @@ public class Task {
         return " ";
     }
 
+    public String getType() {
+        return " ";
+    }
+
     public String getDescription() {
         return description;
     }
@@ -35,6 +39,12 @@ public class Task {
     public void printMarkUndone() {
         System.out.println("Okay we haven't finished it yet!");
         System.out.printf("[%s] %s\n", getStatusIcon(), description);
+        Siao.printDividerLine();
+    }
+
+    public static void printAddedTask(Task action){
+        Siao.printDividerLine();
+        System.out.printf("Nicely done! I've added this task:\n[ ][%s] %s\n", action.getStatusIcon(), action.getDescription());
         Siao.printDividerLine();
     }
 

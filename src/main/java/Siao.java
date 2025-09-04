@@ -3,6 +3,12 @@ import java.util.Scanner;
 
 public class Siao {
 
+    public enum Label {
+        TODO,
+        DEADLINE,
+        EVENT
+    }
+
     public static void  printDividerLine(){
         System.out.println("---------------------------------");
     }
@@ -10,31 +16,30 @@ public class Siao {
     public static void printList(Task[] list) {
         printDividerLine();
         int indexNumber = 1;
-        for (int i = 0; i < list.length; i++) {
-            if(list[i] == null) {
+        for (Task task : list) {
+            if (task == null) {
                 System.out.println("-----------End Of List-----------");
                 break;
             }
-            System.out.printf("%d. [%s] %s\n", indexNumber, list[i].getStatusIcon(), list[i].getDescription());
+            System.out.printf("%d. [%s] %s\n", indexNumber, task.getStatusIcon(), task.getDescription());
             indexNumber++;
         }
         printDividerLine();
     }
 
 
-    public static void printAction(String action){
-        printDividerLine();
-        System.out.printf("added: " + action + "\n");
-        printDividerLine();
-    }
+//    public static void printAction(String action){
+//        printDividerLine();
+//        System.out.printf("added: " + action + "\n");
+//        printDividerLine();
+//    } moved to Task class
 
     public static void main(String[] args) {
         System.out.println("Hello! I'm Siao!!");
+        System.out.println("What can I do for you?");
 
         Scanner input = new Scanner(System.in);
-        System.out.println("What can I do for you?");
         String line = input.nextLine();
-
         Task[] list = new Task[100];
         int matchCount = 0;
 
@@ -65,8 +70,8 @@ public class Siao {
 
                 default:
                     list[matchCount] = new Task(line);
+                    Task.printAddedTask(list[matchCount]);
                     matchCount++;
-                    printAction(line);
                     line = input.nextLine();
                     break;
             }
