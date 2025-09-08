@@ -9,4 +9,22 @@ public class Deadline extends Task{
         return "D";
     }
 
+    public String getDeadline(Deadline deadline) {
+        String[] parts = deadline.description.split("/by", 2);
+        return parts[1];
+    }
+
+    public String getDeadlineDescription(Deadline deadline) {
+        String[] parts = deadline.description.split("/", 2);
+        return parts[0];
+    }
+
+    @Override
+    public void printAddedTask() {
+        Siao.printDividerLine();
+        System.out.printf("Nicely done! I've added this task:\n[%s][%s] %s(by:%s)\n",
+                getType(), getStatusIcon(), getDeadlineDescription(this), getDeadline(this));
+
+    }
+
 }
