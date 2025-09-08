@@ -51,6 +51,14 @@ public class Siao {
                     line = input.nextLine();
                     break;
 
+                case "event":
+                    Event newEvent = new Event(line);
+                    list.add(newEvent);
+                    newEvent.printAddedTask();
+                    line = input.nextLine();
+                    break;
+
+
                 default:
                     Task newTask = new Task(line);
                     list.add(newTask);
