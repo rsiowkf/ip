@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Siao {
 
@@ -10,23 +11,22 @@ public class Siao {
     }
 
     private static final String DIVIDER = "---------------------------------";
-    private static final String WELCOME_MESSAGE = "Hello I'm Siao!\n What can I do for you today?\n";
+    private static final String WELCOME_MESSAGE = "Hello I'm Siao!\nWhat can I do for you today?\n";
     private static final String GOODBYE_MESSAGE = "Bye bye! Do remember to complete your tasks!";
 
     public static void  printDividerLine(){
         System.out.println(DIVIDER);
     }
 
-    public static void printList(Task[] list) {
+    public static void printList(ArrayList<Task> list) {
         printDividerLine();
         int indexNumber = 1;
         for (Task task : list) {
-            if (task == null) {
-                System.out.println("-----------End Of List-----------");
-                break;
-            }
             System.out.printf("%d. [%s] %s\n", indexNumber, task.getStatusIcon(), task.getDescription());
             indexNumber++;
+        }
+        if (list.isEmpty()) {
+            System.out.println("-----------End Of List-----------");
         }
         printDividerLine();
     }
@@ -39,12 +39,11 @@ public class Siao {
 //    } moved to Task class
 
     public static void main(String[] args) {
-        System.out.println(WELCOME_MESSAGE);
+        System.out.print(WELCOME_MESSAGE);
 
         Scanner input = new Scanner(System.in);
         String line = input.nextLine();
-        Task[] list = new Task[100];
-        int matchCount = 0;
+        ArrayList<Task> list = new ArrayList<>();
 
         while(!line.equalsIgnoreCase("bye")){
             String[] splitInput = line.split(" ");
@@ -59,24 +58,28 @@ public class Siao {
 
                 case "mark":
                     int markIndex = Integer.parseInt(splitInput[1]) - 1;
-                    list[markIndex].markDone();
-                    list[markIndex].printMarkDone();
+                    list.get(markIndex).markDone();
+                    list.get(markIndex).printMarkDone();
                     line = input.nextLine();
                     break;
 
                 case "unmark":
                     int unmarkIndex = Integer.parseInt(splitInput[1]) - 1;
-                    list[unmarkIndex].markUndone();
-                    list[unmarkIndex].printMarkUndone();
+                    list.get(unmarkIndex).markUndone();
+                    list.get(unmarkIndex).printMarkUndone();
                     line = input.nextLine();
                     break;
 
                 default:
-                    list[matchCount] = new Task(line);
-                    Task.printAddedTask(list[matchCount]);
-                    matchCount++;
+//                    list[matchCount] = new Task(line);
+//                    Task.printAddedTask(list[matchCount]);
+//                    matchCount++;
+//                    line = input.nextLine();
+//                    break;
+                    Task newTask = new Task(line);
+                    list.add(newTask);
+                    Task.printAddedTask(newTask);
                     line = input.nextLine();
-                    break;
             }
         }
 
