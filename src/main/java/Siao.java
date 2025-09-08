@@ -7,6 +7,8 @@ public class Siao {
     private static final String DIVIDER = "---------------------------------";
     private static final String WELCOME_MESSAGE = "Hello I'm Siao!\nWhat can I do for you today?\n";
     private static final String GOODBYE_MESSAGE = "Bye bye! Do remember to complete your tasks!";
+    private static final int DEADLINE_INDEX = 9;
+    private static final int EVENT_INDEX = 6;
 
     public static void  printDividerLine(){
         System.out.println(DIVIDER);
@@ -45,14 +47,16 @@ public class Siao {
                     break;
 
                 case "deadline":
-                    Deadline newDeadline = new Deadline(line);
+                    String deadlineDescription = line.substring(DEADLINE_INDEX);
+                    Deadline newDeadline = new Deadline(deadlineDescription);
                     list.add(newDeadline);
                     newDeadline.printAddedTask();
                     line = input.nextLine();
                     break;
 
                 case "event":
-                    Event newEvent = new Event(line);
+                    String  eventDescription = line.substring(EVENT_INDEX);
+                    Event newEvent = new Event(eventDescription);
                     list.add(newEvent);
                     newEvent.printAddedTask();
                     line = input.nextLine();
