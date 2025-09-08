@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -18,19 +17,6 @@ public class Siao {
         System.out.println(DIVIDER);
     }
 
-    public static void printList(ArrayList<Task> list) {
-        printDividerLine();
-        int indexNumber = 1;
-        for (Task task : list) {
-            System.out.printf("%d. [%s] %s\n", indexNumber, task.getStatusIcon(), task.getDescription());
-            indexNumber++;
-        }
-        if (list.isEmpty()) {
-            System.out.println("-----------End Of List-----------");
-        }
-        printDividerLine();
-    }
-
     public static void main(String[] args) {
         System.out.print(WELCOME_MESSAGE);
 
@@ -45,7 +31,7 @@ public class Siao {
             switch (command){
 
                 case "list":
-                    printList(list);
+                    Listmanager.printList(list);
                     line = input.nextLine();
                     break;
 
@@ -68,6 +54,7 @@ public class Siao {
                     list.add(newDeadline);
                     newDeadline.printAddedTask();
                     line = input.nextLine();
+                    break;
 
                 default:
                     Task newTask = new Task(line);
