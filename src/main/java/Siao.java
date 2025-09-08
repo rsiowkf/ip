@@ -9,8 +9,12 @@ public class Siao {
         EVENT
     }
 
+    private static final String DIVIDER = "---------------------------------";
+    private static final String WELCOME_MESSAGE = "Hello I'm Siao!\n What can I do for you today?\n";
+    private static final String GOODBYE_MESSAGE = "Bye bye! Do remember to complete your tasks!";
+
     public static void  printDividerLine(){
-        System.out.println("---------------------------------");
+        System.out.println(DIVIDER);
     }
 
     public static void printList(Task[] list) {
@@ -35,8 +39,7 @@ public class Siao {
 //    } moved to Task class
 
     public static void main(String[] args) {
-        System.out.println("Hello! I'm Siao!!");
-        System.out.println("What can I do for you?");
+        System.out.println(WELCOME_MESSAGE);
 
         Scanner input = new Scanner(System.in);
         String line = input.nextLine();
@@ -77,7 +80,7 @@ public class Siao {
             }
         }
 
-        System.out.println("---------------------------------");
-        System.out.println("Bye. Hope to see you again soon!");
+        System.out.println(DIVIDER);
+        System.out.println(GOODBYE_MESSAGE);
     }
 }
