@@ -9,6 +9,9 @@ public class Siao {
     private static final String GOODBYE_MESSAGE = "Bye bye! Do remember to complete your tasks!";
     private static final int DEADLINE_INDEX = 9;
     private static final int EVENT_INDEX = 6;
+    private static final int TODO_INDEX = 5;
+
+
 
     public static void  printDividerLine(){
         System.out.println(DIVIDER);
@@ -59,6 +62,14 @@ public class Siao {
                     Event newEvent = new Event(eventDescription);
                     list.add(newEvent);
                     newEvent.printAddedTask();
+                    line = input.nextLine();
+                    break;
+
+                case "todo":
+                    String todoDescription = line.substring(TODO_INDEX);
+                    Todo newTodo = new Todo(todoDescription);
+                    list.add(newTodo);
+                    newTodo.printAddedTask();
                     line = input.nextLine();
                     break;
 
