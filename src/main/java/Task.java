@@ -14,6 +14,10 @@ public class Task {
         return " ";
     }
 
+    public String getDeadline() {
+        return "";
+    }
+
     public String getType() {
         return " ";
     }
@@ -32,7 +36,7 @@ public class Task {
 
     public void printMarkDone() {
         System.out.println("Good job on completing the task!");
-        System.out.printf("[%s] %s\n", getStatusIcon(), description);
+        System.out.printf("[%s][%s] %s\n", getType(), getStatusIcon(), description);
         Siao.printDividerLine();
     }
 

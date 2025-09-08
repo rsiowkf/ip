@@ -5,7 +5,8 @@ public class Listmanager {
         Siao.printDividerLine();
         int indexNumber = 1;
         for (Task task : list) {
-            System.out.printf("%d. [%s][%s] %s\n", indexNumber, task.getType(), task.getStatusIcon(), task.getDescription());
+            System.out.printf("%d. [%s][%s] %s %s\n",
+                    indexNumber, task.getType(), task.getStatusIcon(), task.getDescription(), task.getDeadline());
             indexNumber++;
         }
         if (list.isEmpty()) {
