@@ -42,10 +42,16 @@ public class Task {
         Siao.printDividerLine();
     }
 
-    public static void printAddedTask(Task action){
+    //    public void printAddedTask(Task action){
+//        Siao.printDividerLine();
+//        System.out.printf("Nicely done! I've added this task:\n[][%s] %s\n",
+//                action.getStatusIcon(), action.getDescription());
+//        Siao.printDividerLine();
+//    }
+    public void printAddedTask() {
         Siao.printDividerLine();
-        System.out.printf("Nicely done! I've added this task:\n[ ][%s] %s\n", action.getStatusIcon(), action.getDescription());
-        Siao.printDividerLine();
-    }
+        System.out.printf("Nicely done! I've added this task:\n[%s][%s] %s\n",
+                getType(), getStatusIcon(), getDescription());
 
+    }
 }

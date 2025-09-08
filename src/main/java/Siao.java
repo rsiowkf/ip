@@ -31,13 +31,6 @@ public class Siao {
         printDividerLine();
     }
 
-
-//    public static void printAction(String action){
-//        printDividerLine();
-//        System.out.printf("added: " + action + "\n");
-//        printDividerLine();
-//    } moved to Task class
-
     public static void main(String[] args) {
         System.out.print(WELCOME_MESSAGE);
 
@@ -70,15 +63,16 @@ public class Siao {
                     line = input.nextLine();
                     break;
 
+                case "deadline":
+                    Deadline newDeadline = new Deadline(line);
+                    list.add(newDeadline);
+                    newDeadline.printAddedTask();
+                    line = input.nextLine();
+
                 default:
-//                    list[matchCount] = new Task(line);
-//                    Task.printAddedTask(list[matchCount]);
-//                    matchCount++;
-//                    line = input.nextLine();
-//                    break;
                     Task newTask = new Task(line);
                     list.add(newTask);
-                    Task.printAddedTask(newTask);
+                    newTask.printAddedTask();
                     line = input.nextLine();
             }
         }
