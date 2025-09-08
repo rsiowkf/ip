@@ -3,11 +3,6 @@ import java.util.ArrayList;
 
 public class Siao {
 
-    public enum Label {
-        TODO,
-        DEADLINE,
-        EVENT
-    }
 
     private static final String DIVIDER = "---------------------------------";
     private static final String WELCOME_MESSAGE = "Hello I'm Siao!\nWhat can I do for you today?\n";
