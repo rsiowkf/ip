@@ -40,11 +40,6 @@ public class Siao {
                     break;
 
                 case "deadline":
-//                    String deadlineDescription = line.substring(Constants.DEADLINE_INDEX);
-//                    Deadline newDeadline = new Deadline(deadlineDescription);
-//                    list.add(newDeadline);
-//                    newDeadline.printAddedTask();
-//                    line = input.nextLine();
                     Deadline newDeadline = new Deadline(line);
                     list.add(newDeadline);
                     newDeadline.printAddedTask();
@@ -52,8 +47,7 @@ public class Siao {
                     break;
 
                 case "event":
-                    String  eventDescription = line.substring(Constants.EVENT_INDEX);
-                    Event newEvent = new Event(eventDescription);
+                    Event newEvent = new Event(line);
                     list.add(newEvent);
                     newEvent.printAddedTask();
                     line = input.nextLine();
