@@ -5,12 +5,11 @@ public class Listmanager {
         Siao.printDividerLine();
         int indexNumber = 1;
         for (Task task : list) {
-            System.out.printf("%d. [%s][%s] %s %s\n",
-                    indexNumber, task.getType(), task.getStatusIcon(), task.getDescription(), task.getDeadline());
+            System.out.printf("%d. %s",indexNumber, task.toList());
             indexNumber++;
         }
         if (list.isEmpty()) {
-            System.out.println("-----------End Of List-----------");
+            System.out.println(Constants.END_OF_LIST);
         }
         Siao.printDividerLine();
     }

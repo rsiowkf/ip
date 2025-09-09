@@ -36,26 +36,30 @@ public class Task {
 
     public void printMarkDone() {
         System.out.println("Good job on completing the task!");
-        System.out.printf("[%s][%s] %s\n", getType(), getStatusIcon(), description);
+        System.out.printf(toList());
         Siao.printDividerLine();
     }
 
     public void printMarkUndone() {
-        System.out.println("Okay we haven't finished it yet!");
-        System.out.printf("[%s] %s\n", getStatusIcon(), description);
+        System.out.println("DO YOUR JOBBBBBBBBBBBBBBB!");
+        System.out.printf(toList());
         Siao.printDividerLine();
     }
 
-    //    public void printAddedTask(Task action){
-//        Siao.printDividerLine();
-//        System.out.printf("Nicely done! I've added this task:\n[][%s] %s\n",
-//                action.getStatusIcon(), action.getDescription());
-//        Siao.printDividerLine();
-//    }
-    public void printAddedTask() {
-        Siao.printDividerLine();
-        System.out.printf("Nicely done! I've added this task:\n[%s][%s] %s\n",
-                getType(), getStatusIcon(), getDescription());
+    public String toString() {
+        return String.format("Nicely done! I've added this task:\n[%s][%s] %s\n",
+                getType(), getStatusIcon(), this.description);
+    }
 
+    public String toList() {
+        return String.format("[%s][%s] %s\n",
+                getType(), getStatusIcon(), this.description);
+    }
+
+    public static void printAddedTask(Task task) {
+        Siao.printDividerLine();
+        System.out.println("Got it. I've added this task!");
+        System.out.print("   " + task.toString());
+        Siao.printDividerLine();
     }
 }

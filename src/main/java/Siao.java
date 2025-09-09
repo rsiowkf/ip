@@ -42,14 +42,14 @@ public class Siao {
                 case "deadline":
                     Deadline newDeadline = new Deadline(line);
                     list.add(newDeadline);
-                    newDeadline.printAddedTask();
+                    Task.printAddedTask(newDeadline);
                     line = input.nextLine();
                     break;
 
                 case "event":
                     Event newEvent = new Event(line);
                     list.add(newEvent);
-                    newEvent.printAddedTask();
+                    Task.printAddedTask(newEvent);
                     line = input.nextLine();
                     break;
 
@@ -57,7 +57,7 @@ public class Siao {
                     String todoDescription = line.substring(Constants.TODO_INDEX);
                     Todo newTodo = new Todo(todoDescription);
                     list.add(newTodo);
-                    newTodo.printAddedTask();
+                    Task.printAddedTask(newTodo);
                     line = input.nextLine();
                     break;
 
@@ -65,7 +65,7 @@ public class Siao {
                 default:
                     Task newTask = new Task(line);
                     list.add(newTask);
-                    newTask.printAddedTask();
+                    Task.printAddedTask(newTask);
                     line = input.nextLine();
             }
         }

@@ -32,11 +32,20 @@ public class Event extends Task {
         return "E";
     }
 
-    @Override
-    public void printAddedTask() {
-        Siao.printDividerLine();
-        System.out.printf("Nicely done! I've added this task:\n[%s][%s] %s (from: %s to: %s)\n",
+    public String toString() {
+        return String.format("Nicely done! I've added this task:\n[%s][%s] %s (from: %s to: %s)\n",
                 getType(), getStatusIcon(), this.description, this.from, this.to);
-
     }
+
+    public String toList() {
+        return String.format("[%s][%s] %s (from: %s to: %s)\n",
+        getType(), getStatusIcon(), this.description, this.from, this.to);
+    }
+
+//    @Override
+//    public String printAddedTask() {
+//        Siao.printDividerLine();
+//        return String.format("Nicely done! I've added this task:\n[%s][%s] %s (from: %s to: %s)\n",
+//                getType(), getStatusIcon(), this.description, this.from, this.to);
+//    }
 }

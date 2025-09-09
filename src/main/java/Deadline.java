@@ -29,13 +29,22 @@ public class Deadline extends Task{
         return "D";
     }
 
-
-    @Override
-    public void printAddedTask() {
-        Siao.printDividerLine();
-        System.out.printf("Nicely done! I've added this task:\n[%s][%s] %s (by: %s)\n",
+    public String toString() {
+        return String.format("Nicely done! I've added this task:\n[%s][%s] %s (by: %s)\n",
                 getType(), getStatusIcon(), this.description, this.by);
-
     }
+
+    public String toList() {
+        return String.format("[%s][%s] %s (by: %s)\n",
+        getType(), getStatusIcon(), this.description, this.by);
+    }
+
+//    @Override
+//    public static void printAddedTask(Deadline deadline) {
+//        Siao.printDividerLine();
+//        System.out.println("Got it. I've added this task!");
+//        System.out.println(" " + deadline.toString());
+//        Siao.printDividerLine();
+//    }
 
 }
