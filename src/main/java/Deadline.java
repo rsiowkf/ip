@@ -29,15 +29,6 @@ public class Deadline extends Task{
         return "D";
     }
 
-    public String getDeadline() {
-        String[] parts = this.description.split("/by", 2);
-        return parts[1];
-    }
-
-    public String getDeadlineDescription() {
-        String[] parts = this.description.split("/", 2);
-        return parts[0];
-    }
 
     @Override
     public void printAddedTask() {
