@@ -56,12 +56,4 @@ public class Task {
     public String printNumberOfTasks() {
         return String.format("Now you have %d task(s) in the list\n",  taskCounter);
     }
-
-    public static void printAddedTask(Task task) {
-        Siao.printDividerLine();
-        System.out.println("Got it. I've added this task!");
-        System.out.print("   " + task.toString());
-        System.out.print(task.printNumberOfTasks());
-        Siao.printDividerLine();
-    }
 }

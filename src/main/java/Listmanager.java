@@ -13,4 +13,12 @@ public class Listmanager {
         }
         Siao.printDividerLine();
     }
+
+    public static void printAddedTask(Task task) {
+        Siao.printDividerLine();
+        System.out.println("Got it. I've added this task!");
+        System.out.print("   " + task.toString());
+        System.out.print(task.printNumberOfTasks());
+        Siao.printDividerLine();
+    }
 }
