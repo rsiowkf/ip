@@ -11,15 +11,17 @@ public class Siao {
         System.out.print(Constants.WELCOME_MESSAGE);
 
         Scanner input = new Scanner(System.in);
-        String line = input.nextLine();
         ArrayList<Task> list = new ArrayList<>();
+        String line = input.nextLine();
 
         while(!line.equalsIgnoreCase("bye")){
+
             if (line.trim().isEmpty()){
                 System.out.println(Constants.ERROR_MESSAGE);
                 line = input.nextLine();
                 continue;
             }
+
             String[] splitInput = line.split(" ");
             String command = splitInput[0];
 
@@ -59,13 +61,11 @@ public class Siao {
                     break;
 
                 case "todo":
-//                    String todoDescription = line.substring(Constants.TODO_INDEX);
                     Todo newTodo = new Todo(line);
                     list.add(newTodo);
                     Task.printAddedTask(newTodo);
                     line = input.nextLine();
                     break;
-
 
                 default:
                     Task newTask = new Task(line);

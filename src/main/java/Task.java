@@ -4,9 +4,6 @@ public class Task {
     private static int taskCounter;
 
     public Task(String description) { // constructor of the task
-        if (description == null) {
-            System.err.println("Description is empty! IT CANNOT BE EMPTY!");
-        }
         this.description = description;
         this.isDone = false;
         taskCounter++;
