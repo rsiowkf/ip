@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -64,7 +65,7 @@ public class Siao {
 
         while(!line.equalsIgnoreCase("bye")){
             if (line.trim().isEmpty()){
-                System.out.println(Constants.ERROR_MESSAGE);
+                Listmanager.printErrorMessage();
                 line = input.nextLine();
                 continue;
             }

@@ -21,4 +21,10 @@ public class Listmanager {
         System.out.print(task.printNumberOfTasks());
         Siao.printDividerLine();
     }
+
+    public static void printErrorMessage() {
+        Siao.printDividerLine();
+        System.out.println(Constants.ERROR_MESSAGE);
+        Siao.printDividerLine();
+    }
 }

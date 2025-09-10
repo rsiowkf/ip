@@ -10,17 +10,23 @@ public class Deadline extends Task{
         String raw = userInput.trim(); // removes any trailing spaces
         raw = raw.toLowerCase(); // brings the input to all lower case
         raw = raw.substring("deadline".length()).trim(); // removes the "deadline" text
-        String[] parts =  raw.split("/by",2); // splits the string into parts before and after the /by
+        String[] parts = raw.split("/by",2);
+
+        if (parts[0].isEmpty()) {
+            throw new IllegalArgumentException("☹ OOPS!!! The description of a deadline cannot be empty.");
+        }
+
         return parts[0].trim();
     }
 
     private static String parseBy(String userInput) {
+        if (!userInput.contains("/by")) {
+            throw new IllegalArgumentException("☹ OOPS!!! The deadline cannot be empty.");
+        }
         String raw = userInput.trim();
         raw = raw.substring("by".length()).trim();
         String[] parts =  raw.split("/by",2);
-        if (parts.length < 1) {
-            return "";
-        }
+
         return parts[1].trim();
     }
 
