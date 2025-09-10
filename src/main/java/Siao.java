@@ -59,8 +59,8 @@ public class Siao {
                     break;
 
                 case "todo":
-                    String todoDescription = line.substring(Constants.TODO_INDEX);
-                    Todo newTodo = new Todo(todoDescription);
+//                    String todoDescription = line.substring(Constants.TODO_INDEX);
+                    Todo newTodo = new Todo(line);
                     list.add(newTodo);
                     Task.printAddedTask(newTodo);
                     line = input.nextLine();
