@@ -22,9 +22,9 @@ public class Listmanager {
         Siao.printDividerLine();
     }
 
-    public static void printErrorMessage() {
+    public static void printErrorEmptyMessage() {
         Siao.printDividerLine();
-        System.out.println(Constants.ERROR_MESSAGE);
+        System.out.println(Constants.EMPTY_ERROR_MESSAGE);
         Siao.printDividerLine();
     }
 }

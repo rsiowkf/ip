@@ -65,12 +65,19 @@ public class Siao {
 
         while(!line.equalsIgnoreCase("bye")){
             if (line.trim().isEmpty()){
-                Listmanager.printErrorMessage();
+                Listmanager.printErrorEmptyMessage();
                 line = input.nextLine();
                 continue;
             }
-            handleCommand(line, list);
-            line = input.nextLine();
+
+            try {
+                handleCommand(line, list);
+                line = input.nextLine();
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                System.out.println(Constants.EMPTY_DESC_MESSAGE);
+                line = input.nextLine();
+            }
         }
 
         System.out.println(Constants.DIVIDER);
