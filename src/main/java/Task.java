@@ -1,10 +1,12 @@
 public class Task {
     protected String description;
     protected boolean isDone;
+    private static int taskCounter;
 
     public Task(String description) { // constructor of the task
         this.description = description;
         this.isDone = false;
+        taskCounter++;
     }
 
     public String getStatusIcon() {
@@ -47,8 +49,16 @@ public class Task {
     }
 
     public String toString() {
-        return String.format("Nicely done! I've added this task:\n[%s][%s] %s\n",
+        if (taskCounter == 1) {
+            return String.format("[%s][%s] %s\n",
+                    getType(), getStatusIcon(), this.description);
+        }
+        return String.format("[%s][%s] %s\n",
                 getType(), getStatusIcon(), this.description);
+    }
+
+    public String printNumberOfTasks() {
+        return String.format("Now you have %d task(s) in the list\n",  taskCounter);
     }
 
     public String toList() {
@@ -60,6 +70,7 @@ public class Task {
         Siao.printDividerLine();
         System.out.println("Got it. I've added this task!");
         System.out.print("   " + task.toString());
+        System.out.print(task.printNumberOfTasks());
         Siao.printDividerLine();
     }
 }

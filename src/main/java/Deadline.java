@@ -30,7 +30,7 @@ public class Deadline extends Task{
     }
 
     public String toString() {
-        return String.format("Nicely done! I've added this task:\n[%s][%s] %s (by: %s)\n",
+        return String.format("[%s][%s] %s (by: %s)\n",
                 getType(), getStatusIcon(), this.description, this.by);
     }
 

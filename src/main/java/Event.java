@@ -33,7 +33,7 @@ public class Event extends Task {
     }
 
     public String toString() {
-        return String.format("Nicely done! I've added this task:\n[%s][%s] %s (from: %s to: %s)\n",
+        return String.format("[%s][%s] %s (from: %s to: %s)\n",
                 getType(), getStatusIcon(), this.description, this.from, this.to);
     }
 
