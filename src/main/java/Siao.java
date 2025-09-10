@@ -7,6 +7,54 @@ public class Siao {
         System.out.println(Constants.DIVIDER);
     }
 
+    private static void handleCommand(String line, ArrayList<Task> list){
+        String[] splitInput = line.split(" ");
+        String command = splitInput[0];
+
+        switch (command){
+
+            case "list":
+                Listmanager.printList(list);
+                break;
+
+            case "mark":
+                int markIndex = Integer.parseInt(splitInput[1]) - 1;
+                list.get(markIndex).markDone();
+                list.get(markIndex).printMarkDone();
+                break;
+
+            case "unmark":
+                int unmarkIndex = Integer.parseInt(splitInput[1]) - 1;
+                list.get(unmarkIndex).markUndone();
+                list.get(unmarkIndex).printMarkUndone();
+                break;
+
+            case "deadline":
+                Deadline newDeadline = new Deadline(line);
+                list.add(newDeadline);
+                Listmanager.printAddedTask(newDeadline);
+                break;
+
+            case "event":
+                Event newEvent = new Event(line);
+                list.add(newEvent);
+                Listmanager.printAddedTask(newEvent);
+                break;
+
+            case "todo":
+                Todo newTodo = new Todo(line);
+                list.add(newTodo);
+                Listmanager.printAddedTask(newTodo);
+                break;
+
+            default:
+                Task newTask = new Task(line);
+                list.add(newTask);
+                Listmanager.printAddedTask(newTask);
+        }
+
+    }
+
     public static void main(String[] args) {
         System.out.print(Constants.WELCOME_MESSAGE);
 
@@ -15,64 +63,13 @@ public class Siao {
         String line = input.nextLine();
 
         while(!line.equalsIgnoreCase("bye")){
-
             if (line.trim().isEmpty()){
                 System.out.println(Constants.ERROR_MESSAGE);
                 line = input.nextLine();
                 continue;
             }
-
-            String[] splitInput = line.split(" ");
-            String command = splitInput[0];
-
-            switch (command){
-
-                case "list":
-                    Listmanager.printList(list);
-                    line = input.nextLine();
-                    break;
-
-                case "mark":
-                    int markIndex = Integer.parseInt(splitInput[1]) - 1;
-                    list.get(markIndex).markDone();
-                    list.get(markIndex).printMarkDone();
-                    line = input.nextLine();
-                    break;
-
-                case "unmark":
-                    int unmarkIndex = Integer.parseInt(splitInput[1]) - 1;
-                    list.get(unmarkIndex).markUndone();
-                    list.get(unmarkIndex).printMarkUndone();
-                    line = input.nextLine();
-                    break;
-
-                case "deadline":
-                    Deadline newDeadline = new Deadline(line);
-                    list.add(newDeadline);
-                    Listmanager.printAddedTask(newDeadline);
-                    line = input.nextLine();
-                    break;
-
-                case "event":
-                    Event newEvent = new Event(line);
-                    list.add(newEvent);
-                    Listmanager.printAddedTask(newEvent);
-                    line = input.nextLine();
-                    break;
-
-                case "todo":
-                    Todo newTodo = new Todo(line);
-                    list.add(newTodo);
-                    Listmanager.printAddedTask(newTodo);
-                    line = input.nextLine();
-                    break;
-
-                default:
-                    Task newTask = new Task(line);
-                    list.add(newTask);
-                    Listmanager.printAddedTask(newTask);
-                    line = input.nextLine();
-            }
+            handleCommand(line, list);
+            line = input.nextLine();
         }
 
         System.out.println(Constants.DIVIDER);
