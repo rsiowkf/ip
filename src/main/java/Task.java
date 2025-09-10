@@ -4,6 +4,9 @@ public class Task {
     private static int taskCounter;
 
     public Task(String description) { // constructor of the task
+        if (description == null) {
+            System.err.println("Description is empty! IT CANNOT BE EMPTY!");
+        }
         this.description = description;
         this.isDone = false;
         taskCounter++;
@@ -38,32 +41,23 @@ public class Task {
 
     public void printMarkDone() {
         System.out.println("Good job on completing the task!");
-        System.out.printf(toList());
+        System.out.printf(toString());
         Siao.printDividerLine();
     }
 
     public void printMarkUndone() {
         System.out.println("DO YOUR JOBBBBBBBBBBBBBBB!");
-        System.out.printf(toList());
+        System.out.printf(toString());
         Siao.printDividerLine();
     }
 
     public String toString() {
-        if (taskCounter == 1) {
-            return String.format("[%s][%s] %s\n",
-                    getType(), getStatusIcon(), this.description);
-        }
         return String.format("[%s][%s] %s\n",
                 getType(), getStatusIcon(), this.description);
     }
 
     public String printNumberOfTasks() {
         return String.format("Now you have %d task(s) in the list\n",  taskCounter);
-    }
-
-    public String toList() {
-        return String.format("[%s][%s] %s\n",
-                getType(), getStatusIcon(), this.description);
     }
 
     public static void printAddedTask(Task task) {

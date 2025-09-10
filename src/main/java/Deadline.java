@@ -33,18 +33,4 @@ public class Deadline extends Task{
         return String.format("[%s][%s] %s (by: %s)\n",
                 getType(), getStatusIcon(), this.description, this.by);
     }
-
-    public String toList() {
-        return String.format("[%s][%s] %s (by: %s)\n",
-        getType(), getStatusIcon(), this.description, this.by);
-    }
-
-//    @Override
-//    public static void printAddedTask(Deadline deadline) {
-//        Siao.printDividerLine();
-//        System.out.println("Got it. I've added this task!");
-//        System.out.println(" " + deadline.toString());
-//        Siao.printDividerLine();
-//    }
-
 }

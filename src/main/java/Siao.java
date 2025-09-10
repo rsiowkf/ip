@@ -15,6 +15,11 @@ public class Siao {
         ArrayList<Task> list = new ArrayList<>();
 
         while(!line.equalsIgnoreCase("bye")){
+            if (line.trim().isEmpty()){
+                System.out.println(Constants.ERROR_MESSAGE);
+                line = input.nextLine();
+                continue;
+            }
             String[] splitInput = line.split(" ");
             String command = splitInput[0];
 
