@@ -13,7 +13,7 @@ public class Deadline extends Task{
         String[] parts = raw.split("/by",2);
 
         if (parts[0].isEmpty()) {
-            throw new IllegalArgumentException("☹ OOPS!!! The description of a deadline cannot be empty.");
+            throw new IllegalArgumentException(Constants.ILLEGAL_ARGUMENT_MESSAGE);
         }
 
         return parts[0].trim();
@@ -21,7 +21,7 @@ public class Deadline extends Task{
 
     private static String parseBy(String userInput) {
         if (!userInput.contains("/by")) {
-            throw new IllegalArgumentException("☹ OOPS!!! The deadline cannot be empty.");
+            throw new IllegalArgumentException(Constants.ILLEGAL_DEADLINE_MESSAGE);
         }
         String raw = userInput.trim();
         raw = raw.substring("by".length()).trim();

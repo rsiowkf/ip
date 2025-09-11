@@ -75,7 +75,7 @@ public class Siao {
                 line = input.nextLine();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
-                System.out.println(Constants.EMPTY_DESC_MESSAGE);
+                System.out.print(">>>   ");
                 line = input.nextLine();
             }
         }
