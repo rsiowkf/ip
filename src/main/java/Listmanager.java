@@ -2,6 +2,11 @@ import java.util.ArrayList;
 
 public class Listmanager {
     public static void printList(ArrayList<Task> list) {
+        if (list.isEmpty()) {
+            System.out.println(Constants.EMPTY_LIST);
+            return;
+        }
+
         Siao.printDividerLine();
         int indexNumber = 1;
         for (Task task : list) {
@@ -25,6 +30,12 @@ public class Listmanager {
     public static void printErrorEmptyMessage() {
         Siao.printDividerLine();
         System.out.println(Constants.EMPTY_ERROR_MESSAGE);
+        Siao.printDividerLine();
+    }
+
+    public static void printIllegalMessage() {
+        Siao.printDividerLine();
+        System.out.println(Constants.ILLEGAL_MESSAGE);
         Siao.printDividerLine();
     }
 }
