@@ -1,4 +1,4 @@
-import java.util.List;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -49,7 +49,10 @@ public class Siao {
                 break;
 
             default:
-                throw new IllegalArgumentException(Constants.ILLEGAL_MESSAGE);
+                if (!command.isEmpty()){
+                    throw new IllegalArgumentException(Constants.ILLEGAL_MESSAGE);
+                }
+                throw new IllegalArgumentException(Constants.EMPTY_DESC_MESSAGE);
         }
 
     }
@@ -62,11 +65,6 @@ public class Siao {
         String line = input.nextLine();
 
         while(!line.equalsIgnoreCase("bye")){
-
-            if(!line.contains("event") && !line.contains("todo") && !line.contains("deadline")){
-                Listmanager.printIllegalMessage();
-                line = input.nextLine();
-            }
 
             try {
                 handleCommand(line, list);
