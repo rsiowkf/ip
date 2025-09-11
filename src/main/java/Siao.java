@@ -70,6 +70,11 @@ public class Siao {
                 continue;
             }
 
+            if(!line.contains("event") && !line.contains("todo") && !line.contains("deadline")){
+                Listmanager.printIllegalMessage();
+                line = input.nextLine();
+            }
+
             try {
                 handleCommand(line, list);
                 line = input.nextLine();
