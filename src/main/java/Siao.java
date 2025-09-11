@@ -49,9 +49,7 @@ public class Siao {
                 break;
 
             default:
-                Task newTask = new Task(line);
-                list.add(newTask);
-                Listmanager.printAddedTask(newTask);
+                throw new IllegalArgumentException(Constants.ILLEGAL_MESSAGE);
         }
 
     }
@@ -64,11 +62,6 @@ public class Siao {
         String line = input.nextLine();
 
         while(!line.equalsIgnoreCase("bye")){
-            if (line.trim().isEmpty()){
-                Listmanager.printErrorEmptyMessage();
-                line = input.nextLine();
-                continue;
-            }
 
             if(!line.contains("event") && !line.contains("todo") && !line.contains("deadline")){
                 Listmanager.printIllegalMessage();
