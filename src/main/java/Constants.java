@@ -1,5 +1,3 @@
-package Siao.management;
-
 public class Constants {
     public static final String DIVIDER = "---------------------------------";
     public static final String END_OF_LIST = "-----------End Of List-----------";
