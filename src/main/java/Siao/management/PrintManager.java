@@ -48,6 +48,7 @@ public class PrintManager {
         printDividerLine();
         System.out.println("Got it. I've deleted this task!");
         System.out.printf("  " +   task.toString());
+        task.reduceCounter();
         System.out.print(task.printNumberOfTasks());
         printDividerLine();
     }
