@@ -11,9 +11,9 @@ public class Deadline extends Task {
     }
 
     private static String parseDescription(String userInput) {
-        String raw = userInput.trim(); // removes any trailing spaces
-        raw = raw.toLowerCase(); // brings the input to all lower case
-        raw = raw.substring("deadline".length()).trim(); // removes the "deadline" text
+        String raw = userInput.trim();
+        raw = raw.toLowerCase();
+        raw = raw.substring("deadline".length()).trim();
         String[] parts = raw.split("/by",2);
 
         if (parts[0].isEmpty()) {
