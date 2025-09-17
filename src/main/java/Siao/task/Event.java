@@ -1,5 +1,6 @@
 package Siao.task;
 
+import Siao.management.CommandHandler;
 import Siao.management.Constants;
 
 public class Event extends Task {
@@ -13,9 +14,7 @@ public class Event extends Task {
     }
 
     private static String parseDescription(String userInput) {
-        String raw = userInput.trim();
-        raw = raw.toLowerCase();
-        raw = raw.substring("event".length()).trim();
+        String raw = CommandHandler.preprocessInput(userInput, "event");
         String[] parts = raw.split("/from", 2);
         if (parts[0].isEmpty()) {
             throw new IllegalArgumentException(Constants.ILLEGAL_ARGUMENT_MESSAGE);
