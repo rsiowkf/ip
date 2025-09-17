@@ -17,7 +17,7 @@ public class Event extends Task {
         raw = raw.toLowerCase();
         raw = raw.substring("event".length()).trim();
         String[] parts = raw.split("/from", 2);
-        if(parts[0].isEmpty()) {
+        if (parts[0].isEmpty()) {
             throw new IllegalArgumentException(Constants.ILLEGAL_ARGUMENT_MESSAGE);
         }
 
