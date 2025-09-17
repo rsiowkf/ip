@@ -1,5 +1,6 @@
 package Siao.task;
 import Siao.UI.Siao;
+import Siao.management.PrintManager;
 
 public abstract class Task {
     protected String description;
@@ -42,13 +43,13 @@ public abstract class Task {
     public void printMarkDone() {
         System.out.println("Good job on completing the task!");
         System.out.printf(toString());
-        Siao.printDividerLine();
+        PrintManager.printDividerLine();
     }
 
     public void printMarkUndone() {
         System.out.println("DO YOUR JOBBBBBBBBBBBBBBB!");
         System.out.printf(toString());
-        Siao.printDividerLine();
+        PrintManager.printDividerLine();
     }
 
     public String toString() {
