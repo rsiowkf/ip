@@ -43,4 +43,5 @@ public class Printmanager {
         System.out.println(Constants.ILLEGAL_MESSAGE);
         Siao.printDividerLine();
     }
+
 }
