@@ -8,6 +8,15 @@ import Siao.task.Todo;
 import java.util.ArrayList;
 
 public class CommandHandler {
+
+    public static String preprocessInput(String userInput, String keyword) {
+        return userInput
+                .trim()
+                .toLowerCase()
+                .substring(keyword.length())
+                .trim();
+    }
+
     public static void handleCommand(String line, ArrayList<Task> list){
         String[] splitInput = line.split(" ");
         String command = splitInput[0];
