@@ -5,7 +5,7 @@ import Siao.task.Task;
 
 import java.util.ArrayList;
 
-public class Listmanager {
+public class Printmanager {
     public static void printList(ArrayList<Task> list) {
         if (list.isEmpty()) {
             System.out.println(Constants.EMPTY_LIST);
