@@ -17,6 +17,10 @@ public class CommandHandler {
                 .trim();
     }
 
+    private static int parseTaskIndex(String[] userInput) {
+        return Integer.parseInt(userInput[1]) - 1;
+    }
+
     public static void handleCommand(String line, ArrayList<Task> list){
         String[] splitInput = line.split(" ");
         String command = splitInput[0];
@@ -28,16 +32,21 @@ public class CommandHandler {
                 break;
 
             case "mark":
-                int markIndex = Integer.parseInt(splitInput[1]) - 1;
+                int markIndex = parseTaskIndex(splitInput);
                 list.get(markIndex).markDone();
                 list.get(markIndex).printMarkDone();
                 break;
 
             case "unmark":
-                int unmarkIndex = Integer.parseInt(splitInput[1]) - 1;
+                int unmarkIndex = parseTaskIndex(splitInput);
                 list.get(unmarkIndex).markUndone();
                 list.get(unmarkIndex).printMarkUndone();
                 break;
+
+            case "delete":
+                int deleteIndex = parseTaskIndex(splitInput);
+                list.remove(deleteIndex);
+
 
             case "deadline":
                 Deadline newDeadline = new Deadline(line);
