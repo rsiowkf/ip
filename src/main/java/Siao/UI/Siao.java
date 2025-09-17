@@ -1,7 +1,7 @@
 package Siao.UI;
-import Siao.management.Commandhandler;
+import Siao.management.CommandHandler;
 import Siao.management.Constants;
-import Siao.management.Printmanager;
+import Siao.management.PrintManager;
 import Siao.task.Deadline;
 import Siao.task.Event;
 import Siao.task.Task;
@@ -12,9 +12,9 @@ import java.util.ArrayList;
 
 public class Siao {
 
-    public static void  printDividerLine(){
-        System.out.println(Constants.DIVIDER);
-    }
+//    public static void  printDividerLine(){
+//        System.out.println(Constants.DIVIDER);
+//    }
 
     public static void main(String[] args) {
         System.out.print(Constants.WELCOME_MESSAGE);
@@ -26,7 +26,7 @@ public class Siao {
         while(!line.equalsIgnoreCase("bye")){
 
             try {
-                Commandhandler.handleCommand(line, list);
+                CommandHandler.handleCommand(line, list);
                 line = input.nextLine();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
