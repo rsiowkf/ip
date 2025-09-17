@@ -1,6 +1,6 @@
 package Siao.UI;
 import Siao.management.Constants;
-import Siao.management.Listmanager;
+import Siao.management.Printmanager;
 import Siao.task.Deadline;
 import Siao.task.Event;
 import Siao.task.Task;
@@ -22,7 +22,7 @@ public class Siao {
         switch (command){
 
             case "list":
-                Listmanager.printList(list);
+                Printmanager.printList(list);
                 break;
 
             case "mark":
@@ -40,19 +40,19 @@ public class Siao {
             case "deadline":
                 Deadline newDeadline = new Deadline(line);
                 list.add(newDeadline);
-                Listmanager.printAddedTask(newDeadline);
+                Printmanager.printAddedTask(newDeadline);
                 break;
 
             case "event":
                 Event newEvent = new Event(line);
                 list.add(newEvent);
-                Listmanager.printAddedTask(newEvent);
+                Printmanager.printAddedTask(newEvent);
                 break;
 
             case "todo":
                 Todo newTodo = new Todo(line);
                 list.add(newTodo);
-                Listmanager.printAddedTask(newTodo);
+                Printmanager.printAddedTask(newTodo);
                 break;
 
             default:
