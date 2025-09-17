@@ -5,14 +5,14 @@ import Siao.task.Task;
 
 import java.util.ArrayList;
 
-public class Printmanager {
+public class PrintManager {
     public static void printList(ArrayList<Task> list) {
         if (list.isEmpty()) {
             System.out.println(Constants.EMPTY_LIST);
             return;
         }
 
-        Siao.printDividerLine();
+        printDividerLine();
         int indexNumber = 1;
         for (Task task : list) {
             System.out.printf("%d. %s",indexNumber, task.toString());
@@ -21,27 +21,31 @@ public class Printmanager {
         if (list.isEmpty()) {
             System.out.println(Constants.END_OF_LIST);
         }
-        Siao.printDividerLine();
+        printDividerLine();
     }
 
     public static void printAddedTask(Task task) {
-        Siao.printDividerLine();
+        printDividerLine();
         System.out.println("Got it. I've added this task!");
         System.out.print("   " + task.toString());
         System.out.print(task.printNumberOfTasks());
-        Siao.printDividerLine();
+        printDividerLine();
     }
 
     public static void printErrorEmptyMessage() {
-        Siao.printDividerLine();
+        printDividerLine();
         System.out.println(Constants.EMPTY_ERROR_MESSAGE);
-        Siao.printDividerLine();
+        printDividerLine();
     }
 
     public static void printIllegalMessage() {
-        Siao.printDividerLine();
+        printDividerLine();
         System.out.println(Constants.ILLEGAL_MESSAGE);
-        Siao.printDividerLine();
+        printDividerLine();
+    }
+
+    public static void  printDividerLine(){
+        System.out.println(Constants.DIVIDER);
     }
 
 }

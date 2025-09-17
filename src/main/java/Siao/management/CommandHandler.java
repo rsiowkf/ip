@@ -7,7 +7,7 @@ import Siao.task.Todo;
 
 import java.util.ArrayList;
 
-public class Commandhandler {
+public class CommandHandler {
     public static void handleCommand(String line, ArrayList<Task> list){
         String[] splitInput = line.split(" ");
         String command = splitInput[0];
@@ -15,7 +15,7 @@ public class Commandhandler {
         switch (command){
 
             case "list":
-                Printmanager.printList(list);
+                PrintManager.printList(list);
                 break;
 
             case "mark":
@@ -33,19 +33,19 @@ public class Commandhandler {
             case "deadline":
                 Deadline newDeadline = new Deadline(line);
                 list.add(newDeadline);
-                Printmanager.printAddedTask(newDeadline);
+                PrintManager.printAddedTask(newDeadline);
                 break;
 
             case "event":
                 Event newEvent = new Event(line);
                 list.add(newEvent);
-                Printmanager.printAddedTask(newEvent);
+                PrintManager.printAddedTask(newEvent);
                 break;
 
             case "todo":
                 Todo newTodo = new Todo(line);
                 list.add(newTodo);
-                Printmanager.printAddedTask(newTodo);
+                PrintManager.printAddedTask(newTodo);
                 break;
 
             default:
