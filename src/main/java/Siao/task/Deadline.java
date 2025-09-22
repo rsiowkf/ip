@@ -22,7 +22,7 @@ public class Deadline extends Task {
         return parts[0].trim();
     }
 
-    private static String parseBy(String userInput) {
+    public static String parseBy(String userInput) {
         if (!userInput.contains("/by")) {
             throw new IllegalArgumentException(Constants.ILLEGAL_DEADLINE_MESSAGE);
         }
