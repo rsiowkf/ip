@@ -45,8 +45,7 @@ public class CommandHandler {
 
             case "delete":
                 int deleteIndex = parseTaskIndex(splitInput);
-                PrintManager.printDeletedTask(list.get(deleteIndex));
-                list.remove(deleteIndex);
+                PrintManager.printDeletedTask(list, deleteIndex);
                 break;
 
             case "deadline":
