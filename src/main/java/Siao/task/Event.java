@@ -23,7 +23,7 @@ public class Event extends Task {
         return parts[0].trim();
     }
 
-    private static String parseFrom(String userInput) {
+    public static String parseFrom(String userInput) {
         if (!userInput.contains("/from")) {
             throw new IllegalArgumentException(Constants.ILLEGAL_START_MESSAGE);
         }
@@ -33,7 +33,7 @@ public class Event extends Task {
         return subParts[0].trim();
     }
 
-    private static String parseTo(String userInput) {
+    public static String parseTo(String userInput) {
         if (!userInput.contains("/to")) {
             throw new IllegalArgumentException(Constants.ILLEGAL_END_MESSAGE);
         }
