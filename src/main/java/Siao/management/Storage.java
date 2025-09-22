@@ -35,8 +35,8 @@ public class Storage {
 
     public void saveTask(Task task) {
         try {
-            FileWriter writer = new FileWriter(storageFile);
-            writer.write(savedTaskToString(task));
+            FileWriter writer = new FileWriter(storageFile, true);
+            writer.write(savedTaskToString(task) + "\n");
             writer.close();
         } catch (IOException e) {
             System.out.println("Error creating storage file: " + e.getMessage());
