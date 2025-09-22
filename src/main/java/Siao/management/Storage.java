@@ -46,16 +46,16 @@ public class Storage {
     public String savedTaskToString(Task task) {
         String type = task.getType();
         String desc = task.getDescription();
-        String status = task.getStatusIcon();
+        String status = task.getStatusIcon().equals("X") ? "1" : "0";
 
         if (task instanceof Deadline) {
-            String by = Deadline.parseBy(desc);
+            String by = ((Deadline) task).by; // to update the by accordingly
             return type + " | " + status + " | " + desc + " | " + by;
         }
         if (task instanceof Event) {
-            String from = Event.parseFrom(desc);
-            String to = Event.parseTo(desc);
-            return type + " | " + status + " | " + desc + " | " + from + to;
+            String from = ((Event) task).from;
+            String to = ((Event) task).to;
+            return type + " | " + status + " | " + desc + " | " + from + " - " + to;
         } else {
             return type + " | " + status + " | " + desc;
         }
