@@ -44,13 +44,18 @@ public class PrintManager {
         printDividerLine();
     }
 
-    public static void printDeletedTask(Task task) {
-        printDividerLine();
-        System.out.println("Got it. I've deleted this task!");
-        System.out.printf("  " +   task.toString());
-        task.reduceCounter();
-        System.out.print(task.printNumberOfTasks());
-        printDividerLine();
+    public static void printDeletedTask(ArrayList<Task> list, int taskIndex) {
+        if (list.isEmpty()) {
+            System.out.println(Constants.EMPTY_LIST);
+        } else {
+            printDividerLine();
+            System.out.println("Got it. I've deleted this task!");
+            System.out.printf("  " + list.get(taskIndex).toString());
+            list.get(taskIndex).reduceCounter();
+            System.out.print(list.get(taskIndex).printNumberOfTasks());
+            printDividerLine();
+            list.remove(taskIndex);
+        }
     }
 
     public static void  printDividerLine(){
