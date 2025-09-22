@@ -1,5 +1,7 @@
 package Siao.management;
 
+import Siao.task.Deadline;
+import Siao.task.Event;
 import Siao.task.Task;
 
 import java.io.File;
@@ -41,10 +43,20 @@ public class Storage {
         }
     }
 
-    public void savedTaskToString(Task task) {
+    public String savedTaskToString(Task task) {
         String type = task.getType();
         String desc = task.getDescription();
         String status = task.getStatusIcon();
+
+        if (task instanceof Deadline) {
+            String by = Deadline.parseBy(desc);
+            return type + " | " + status + " | " + desc + " | " + by;
+        }
+        if (task instanceof Event) {
+            String from = Event.parseFrom(desc);
+            String to = Event.parseTo(desc);
+            return type + " | " + status + " | " + desc + " | " + from + to;
+        }
     }
 
 }
