@@ -4,7 +4,7 @@ import Siao.management.CommandHandler;
 import Siao.management.Constants;
 
 public class Deadline extends Task {
-    private final String by;
+    public final String by;
 
     public Deadline(String description) {
         super(parseDescription(description));

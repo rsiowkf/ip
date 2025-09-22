@@ -4,8 +4,8 @@ import Siao.management.CommandHandler;
 import Siao.management.Constants;
 
 public class Event extends Task {
-    private final String from;
-    private final String to;
+    public final String from;
+    public final String to;
 
     public Event(String description) {
         super(parseDescription(description));
