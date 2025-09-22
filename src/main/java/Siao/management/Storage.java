@@ -49,7 +49,7 @@ public class Storage {
         String status = task.getStatusIcon().equals("X") ? "1" : "0";
 
         if (task instanceof Deadline) {
-            String by = ((Deadline) task).by; // to update the by accordingly
+            String by = ((Deadline) task).by;
             return type + " | " + status + " | " + desc + " | " + by;
         }
         if (task instanceof Event) {
@@ -58,6 +58,17 @@ public class Storage {
             return type + " | " + status + " | " + desc + " | " + from + " - " + to;
         } else {
             return type + " | " + status + " | " + desc;
+        }
+    }
+
+    public void saveAllTasks(ArrayList<Task> tasks) {
+        try {
+            FileWriter writer = new FileWriter(storageFile, false);
+            for (Task task : tasks) {
+                writer.write(savedTaskToString(task));
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
