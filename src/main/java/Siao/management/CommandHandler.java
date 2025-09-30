@@ -4,6 +4,7 @@ import Siao.task.Deadline;
 import Siao.task.Event;
 import Siao.task.Task;
 import Siao.task.Todo;
+import Siao.management.Storage;
 
 import java.util.ArrayList;
 
@@ -15,6 +16,12 @@ public class CommandHandler {
                 .toLowerCase()
                 .substring(keyword.length())
                 .trim();
+    }
+
+    private static Storage storage;
+
+    public static void setStorage(Storage s) {
+        storage = s;
     }
 
     public static void handleCommand(String line, ArrayList<Task> list){
@@ -31,30 +38,38 @@ public class CommandHandler {
                 int markIndex = Integer.parseInt(splitInput[1]) - 1;
                 list.get(markIndex).markDone();
                 list.get(markIndex).printMarkDone();
+                // mark and update the mark task
                 break;
 
             case "unmark":
                 int unmarkIndex = Integer.parseInt(splitInput[1]) - 1;
                 list.get(unmarkIndex).markUndone();
                 list.get(unmarkIndex).printMarkUndone();
+                // unmark and update all the unmarked task
                 break;
 
             case "deadline":
                 Deadline newDeadline = new Deadline(line);
                 list.add(newDeadline);
                 PrintManager.printAddedTask(newDeadline);
+                // add new deadline into the storage file
+                storage.saveTask(newDeadline);
                 break;
 
             case "event":
                 Event newEvent = new Event(line);
                 list.add(newEvent);
                 PrintManager.printAddedTask(newEvent);
+                // add new event into the storage file
+                storage.saveTask(newEvent);
                 break;
 
             case "todo":
                 Todo newTodo = new Todo(line);
                 list.add(newTodo);
                 PrintManager.printAddedTask(newTodo);
+                // add new todo into the storage file
+                storage.saveTask(newTodo);
                 break;
 
             default:
