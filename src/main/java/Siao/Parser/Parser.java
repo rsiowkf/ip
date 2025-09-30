@@ -6,30 +6,31 @@ import Siao.task.Task;
 import Siao.task.Todo;
 
 public class Parser {
-    public static Task parseTask(String line) {
+    public static Task parseTaskFromStorage(String line) {
         String[] parts =  line.split("\\|");
-        String type = parts[0];
-        int isDone =  Integer.parseInt(parts[1]);
-        String desc = parts[2];
+        String type = parts[0].trim();
+        int isDone =  Integer.parseInt(parts[1].trim());
+        String desc = parts[2].trim();
 
         Task task;
 
         switch (type) {
         case "T":
-            task = new Todo(desc);
+            String todoDescription = "todo " + desc;
+            task = new Todo(todoDescription);
             if (isDone == 1) {
                 task.markDone();
             }
             break;
         case "D":
-            String deadlineDesc = parts[2] + "/by" + parts[3];
+            String deadlineDesc = "deadline " + desc + " /by" + parts[3];
             task = new Deadline(deadlineDesc);
             if (isDone == 1) {
                 task.markDone();
             }
             break;
         case "E":
-            String eventDesc = parts[2] + "/from" + parts[3] + "/to" + parts[4];
+            String eventDesc = "event " + desc + "/from" + parts[3] + "/to" + parts[4];
             task = new Event(eventDesc);
             if (isDone == 1) {
                 task.markDone();
