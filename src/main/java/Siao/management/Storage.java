@@ -3,12 +3,14 @@ package Siao.management;
 import Siao.task.Deadline;
 import Siao.task.Event;
 import Siao.task.Task;
+import Siao.Parser.Parser;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class Storage {
@@ -74,6 +76,27 @@ public class Storage {
     }
 
     public void loadTasks(){
+        ArrayList<Task> tasks = new ArrayList<>();
+
+        try {
+            File file = new File(Constants.FILE_PATH);
+            if (!file.exists()) {
+                throw new FileNotFoundException(Constants.FILE_PATH + " not found");
+            }
+
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                Task task = Parser.parseTask(line);
+                if (task != null) {
+                    tasks.add(task);
+                }
+            }
+            scanner.close();
+
+        } catch (IOException e) {
+            System.out.println("Error loading tasks: " + e.getMessage());
+        }
         // open the savedtasks.txt file
         // read each line
         // convert each task into a todo, deadline or event
