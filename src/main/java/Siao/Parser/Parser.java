@@ -6,7 +6,7 @@ import Siao.task.Task;
 import Siao.task.Todo;
 
 public class Parser {
-    public Task parseTask(String line) {
+    public static Task parseTask(String line) {
         String[] parts =  line.split("\\|");
         String type = parts[0];
         int isDone =  Integer.parseInt(parts[1]);
