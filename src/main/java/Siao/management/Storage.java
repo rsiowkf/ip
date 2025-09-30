@@ -65,11 +65,19 @@ public class Storage {
         try {
             FileWriter writer = new FileWriter(storageFile, false);
             for (Task task : tasks) {
-                writer.write(savedTaskToString(task));
+                writer.write(savedTaskToString(task) + "\n");
             }
+            writer.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void loadTasks(){
+        // open the savedtasks.txt file
+        // read each line
+        // convert each task into a todo, deadline or event
+        // add it into the arraylist
     }
 
 }
