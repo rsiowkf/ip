@@ -18,13 +18,16 @@ public class Siao {
         Scanner input = new Scanner(System.in);
         ArrayList<Task> list = new ArrayList<>();
         String line = input.nextLine();
+        String command = line.split(" ")[0];
 
         while(!line.equalsIgnoreCase("bye")){
 
             try {
                 CommandHandler.handleCommand(line, list);
                 // add storage file here
-                storage.saveTask(list.get(list.size()-1));
+                if (command.equals("todo") || command.equals("event") || command.equals("deadline")) {
+                    storage.saveTask(list.get(list.size() - 1));
+                }
                 line = input.nextLine();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
