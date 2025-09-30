@@ -14,6 +14,7 @@ public class Siao {
         System.out.print(Constants.WELCOME_MESSAGE);
 
         Storage storage = new Storage("data/SavedTasks.txt");
+        CommandHandler.setStorage(storage);
 
         Scanner input = new Scanner(System.in);
         ArrayList<Task> list = new ArrayList<>();
@@ -24,10 +25,6 @@ public class Siao {
 
             try {
                 CommandHandler.handleCommand(line, list);
-                // add storage file here
-                if (command.equals("todo") || command.equals("event") || command.equals("deadline")) {
-                    storage.saveTask(list.get(list.size() - 1));
-                }
                 line = input.nextLine();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
