@@ -12,6 +12,7 @@ public class Constants {
     public static final String ILLEGAL_END_MESSAGE = "☹ OOPS!!! So when's your event ending?";
     public static final String ILLEGAL_MESSAGE = "☹ OOPS!! What are you trying to tell me?";
     public static final String EMPTY_LIST = "Erm your list is empty, what are you tryna do?";
+    public static final String FILE_PATH = "data/SavedTasks.txt";
 
 
     public static final String WELCOME_MESSAGE = """
