@@ -17,7 +17,8 @@ public class Siao {
         CommandHandler.setStorage(storage);
 
         Scanner input = new Scanner(System.in);
-        ArrayList<Task> list = new ArrayList<>();
+//        ArrayList<Task> list = new ArrayList<>();
+        ArrayList<Task> list = storage.loadTasks();
         String line = input.nextLine();
         String command = line.split(" ")[0];
 
