@@ -36,15 +36,23 @@ public class CommandHandler {
 
             case "mark":
                 int markIndex = Integer.parseInt(splitInput[1]) - 1;
+                if (list.isEmpty()) {
+                    throw new IllegalArgumentException("No item in the list, HOW TO MARK?");
+                }
                 list.get(markIndex).markDone();
                 list.get(markIndex).printMarkDone();
                 // mark and update the mark task
+                storage.saveAllTasks(list);
                 break;
 
             case "unmark":
                 int unmarkIndex = Integer.parseInt(splitInput[1]) - 1;
+                if (list.isEmpty()) {
+                    throw new IllegalArgumentException("No item in the list, HOW TO UNMARK?");
+                }
                 list.get(unmarkIndex).markUndone();
                 list.get(unmarkIndex).printMarkUndone();
+                storage.saveAllTasks(list);
                 // unmark and update all the unmarked task
                 break;
 
