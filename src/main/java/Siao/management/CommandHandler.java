@@ -24,6 +24,10 @@ public class CommandHandler {
         storage = s;
     }
 
+    private static int parseTaskIndex(String[] userInput) {
+        return Integer.parseInt(userInput[1]) - 1;
+    }
+
     public static void handleCommand(String line, ArrayList<Task> list){
         String[] splitInput = line.split(" ");
         String command = splitInput[0];
@@ -54,6 +58,11 @@ public class CommandHandler {
                 list.get(unmarkIndex).printMarkUndone();
                 storage.saveAllTasks(list);
                 // unmark and update all the unmarked task
+                break;
+
+            case "delete":
+                int deleteIndex = parseTaskIndex(splitInput);
+                PrintManager.printDeletedTask(list, deleteIndex);
                 break;
 
             case "deadline":

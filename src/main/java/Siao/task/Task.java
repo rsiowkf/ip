@@ -13,6 +13,10 @@ public abstract class Task {
         taskCounter++;
     }
 
+    public void reduceCounter() {
+        taskCounter--;
+    }
+
     public String getStatusIcon() {
         if (isDone) {
             return "X";
