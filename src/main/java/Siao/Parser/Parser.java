@@ -30,7 +30,9 @@ public class Parser {
             }
             break;
         case "E":
-            String eventDesc = "event " + desc + "/from" + parts[3] + "/to" + parts[4];
+            String from = parts[3].trim().split("-")[0];
+            String to = parts[3].trim().split("-")[1];
+            String eventDesc = "event " + desc + "/from" + from + "/to" + to;
             task = new Event(eventDesc);
             if (isDone == 1) {
                 task.markDone();
