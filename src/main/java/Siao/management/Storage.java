@@ -6,10 +6,9 @@ import Siao.task.Task;
 import Siao.Parser.Parser;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.io.*;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -98,10 +97,7 @@ public class Storage {
         } catch (IOException e) {
             System.out.println("Error loading tasks: " + e.getMessage());
         }
-        // open the savedtasks.txt file
-        // read each line
-        // convert each task into a todo, deadline or event
-        // add it into the arraylist
+
         return list;
     }
 
