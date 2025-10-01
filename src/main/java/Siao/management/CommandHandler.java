@@ -4,6 +4,7 @@ import Siao.task.Deadline;
 import Siao.task.Event;
 import Siao.task.Task;
 import Siao.task.Todo;
+import Siao.Parser.Parser;
 import Siao.management.Storage;
 
 import java.util.ArrayList;
@@ -24,9 +25,6 @@ public class CommandHandler {
         storage = s;
     }
 
-    private static int parseTaskIndex(String[] userInput) {
-        return Integer.parseInt(userInput[1]) - 1;
-    }
 
     public static void handleCommand(String line, ArrayList<Task> list){
         String[] splitInput = line.split(" ");
@@ -39,29 +37,27 @@ public class CommandHandler {
                 break;
 
             case "mark":
-                int markIndex = Integer.parseInt(splitInput[1]) - 1;
+                int markIndex = Parser.parseTaskIndex(splitInput);
                 if (list.isEmpty()) {
                     throw new IllegalArgumentException("No item in the list, HOW TO MARK?");
                 }
                 list.get(markIndex).markDone();
                 list.get(markIndex).printMarkDone();
-                // mark and update the mark task
                 storage.saveAllTasks(list);
                 break;
 
             case "unmark":
-                int unmarkIndex = Integer.parseInt(splitInput[1]) - 1;
+                int unmarkIndex = Parser.parseTaskIndex(splitInput);
                 if (list.isEmpty()) {
                     throw new IllegalArgumentException("No item in the list, HOW TO UNMARK?");
                 }
                 list.get(unmarkIndex).markUndone();
                 list.get(unmarkIndex).printMarkUndone();
                 storage.saveAllTasks(list);
-                // unmark and update all the unmarked task
                 break;
 
             case "delete":
-                int deleteIndex = parseTaskIndex(splitInput);
+                int deleteIndex = Parser.parseTaskIndex(splitInput);
                 PrintManager.printDeletedTask(list, deleteIndex);
                 break;
 
@@ -69,7 +65,6 @@ public class CommandHandler {
                 Deadline newDeadline = new Deadline(line);
                 list.add(newDeadline);
                 PrintManager.printAddedTask(newDeadline);
-                // add new deadline into the storage file
                 storage.saveTask(newDeadline);
                 break;
 
@@ -77,7 +72,6 @@ public class CommandHandler {
                 Event newEvent = new Event(line);
                 list.add(newEvent);
                 PrintManager.printAddedTask(newEvent);
-                // add new event into the storage file
                 storage.saveTask(newEvent);
                 break;
 
@@ -85,7 +79,6 @@ public class CommandHandler {
                 Todo newTodo = new Todo(line);
                 list.add(newTodo);
                 PrintManager.printAddedTask(newTodo);
-                // add new todo into the storage file
                 storage.saveTask(newTodo);
                 break;
 
