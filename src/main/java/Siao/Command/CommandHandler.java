@@ -50,6 +50,10 @@ public class CommandHandler {
                 AddTodo.newTodo(list, line, storage);
                 break;
 
+            case "find":
+                FindTask.returnTask(line, list);
+                break;
+
             default:
                 if (!command.isEmpty()){
                     throw new IllegalArgumentException(Constants.ILLEGAL_MESSAGE);
