@@ -42,10 +42,7 @@ public class CommandHandler {
                 break;
 
             case "deadline":
-                Deadline newDeadline = new Deadline(line);
-                list.add(newDeadline);
-                PrintManager.printAddedTask(newDeadline);
-                storage.saveTask(newDeadline);
+                addDeadline.newDeadline(list, line, storage);
                 break;
 
             case "event":
