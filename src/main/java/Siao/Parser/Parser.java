@@ -44,4 +44,8 @@ public class Parser {
         }
         return task;
     }
+
+    public static int parseTaskIndex(String[] userInput) {
+        return Integer.parseInt(userInput[1]) - 1;
+    }
 }
