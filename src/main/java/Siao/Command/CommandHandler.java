@@ -2,11 +2,8 @@ package Siao.Command;
 
 import Siao.management.Constants;
 import Siao.management.PrintManager;
-import Siao.task.Deadline;
-import Siao.task.Event;
 import Siao.task.Task;
 import Siao.task.Todo;
-import Siao.Parser.Parser;
 import Siao.management.Storage;
 import java.util.ArrayList;
 
@@ -30,30 +27,27 @@ public class CommandHandler {
                 break;
 
             case "mark":
-                markCommand.markTask(splitInput, list, storage);
+                MarkCommand.markTask(splitInput, list, storage);
                 break;
 
             case "unmark":
-                unmarkCommand.unmarkTask(splitInput, list, storage);
+                UnmarkCommand.unmarkTask(splitInput, list, storage);
                 break;
 
             case "delete":
-                deleteCommand.deleteTask(splitInput, list, storage);
+                DeleteCommand.deleteTask(splitInput, list, storage);
                 break;
 
             case "deadline":
-                addDeadline.newDeadline(list, line, storage);
+                AddDeadline.newDeadline(list, line, storage);
                 break;
 
             case "event":
-                addEvent.newEvent(list, line, storage);
+                AddEvent.newEvent(list, line, storage);
                 break;
 
             case "todo":
-                Todo newTodo = new Todo(line);
-                list.add(newTodo);
-                PrintManager.printAddedTask(newTodo);
-                storage.saveTask(newTodo);
+                AddTodo.newTodo(list, line, storage);
                 break;
 
             default:

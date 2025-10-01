@@ -7,7 +7,7 @@ import Siao.task.Task;
 
 import java.util.ArrayList;
 
-public class addDeadline {
+public class AddDeadline {
     public static void newDeadline(ArrayList<Task> list, String line, Storage storage){
         Deadline newDeadline = new Deadline(line);
         list.add(newDeadline);

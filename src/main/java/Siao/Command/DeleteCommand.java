@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import Siao.management.Storage;
 
-public class deleteCommand {
+public class DeleteCommand {
     public static void deleteTask(String[] splitInput, ArrayList<Task> list, Storage storage) {
         int deleteIndex = Parser.parseTaskIndex(splitInput);
         PrintManager.printDeletedTask(list, deleteIndex);

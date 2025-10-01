@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import Siao.management.Storage;
 
 
-public class markCommand {
+public class MarkCommand {
     public static void markTask (String[] splitInput, ArrayList<Task> list, Storage storage) {
         int markIndex = Parser.parseTaskIndex(splitInput);
         if (list.isEmpty()) {

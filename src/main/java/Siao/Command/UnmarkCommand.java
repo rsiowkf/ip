@@ -6,7 +6,7 @@ import Siao.task.Task;
 
 import java.util.ArrayList;
 
-public class unmarkCommand {
+public class UnmarkCommand {
     public static void unmarkTask (String[] splitInput, ArrayList<Task> list, Storage storage) {
         int unmarkIndex = Parser.parseTaskIndex(splitInput);
         if (list.isEmpty()) {
