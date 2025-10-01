@@ -8,8 +8,6 @@ import Siao.task.Task;
 import Siao.task.Todo;
 import Siao.Parser.Parser;
 import Siao.management.Storage;
-import Siao.Command.markCommand;
-
 import java.util.ArrayList;
 
 public class CommandHandler {
@@ -36,13 +34,7 @@ public class CommandHandler {
                 break;
 
             case "unmark":
-                int unmarkIndex = Parser.parseTaskIndex(splitInput);
-                if (list.isEmpty()) {
-                    throw new IllegalArgumentException("No item in the list, HOW TO UNMARK?");
-                }
-                list.get(unmarkIndex).markUndone();
-                list.get(unmarkIndex).printMarkUndone();
-                storage.saveAllTasks(list);
+                unmarkCommand.unmarkTask(splitInput, list, storage);
                 break;
 
             case "delete":
