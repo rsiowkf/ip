@@ -46,10 +46,7 @@ public class CommandHandler {
                 break;
 
             case "event":
-                Event newEvent = new Event(line);
-                list.add(newEvent);
-                PrintManager.printAddedTask(newEvent);
-                storage.saveTask(newEvent);
+                addEvent.newEvent(list, line, storage);
                 break;
 
             case "todo":
