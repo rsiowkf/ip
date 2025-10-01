@@ -46,12 +46,14 @@ public abstract class Task {
 
     public void printMarkDone() {
         System.out.println("Good job on completing the task!");
+        System.out.print("  ");
         System.out.printf(toString());
         PrintManager.printDividerLine();
     }
 
     public void printMarkUndone() {
         System.out.println("DO YOUR JOBBBBBBBBBBBBBBB!");
+        System.out.print("  ");
         System.out.printf(toString());
         PrintManager.printDividerLine();
     }
