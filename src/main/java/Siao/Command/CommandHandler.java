@@ -38,9 +38,7 @@ public class CommandHandler {
                 break;
 
             case "delete":
-                int deleteIndex = Parser.parseTaskIndex(splitInput);
-                PrintManager.printDeletedTask(list, deleteIndex);
-                storage.saveAllTasks(list);
+                deleteCommand.deleteTask(splitInput, list, storage);
                 break;
 
             case "deadline":
