@@ -13,6 +13,7 @@ public class Constants {
     public static final String ILLEGAL_MESSAGE = "☹ OOPS!! What are you trying to tell me?";
     public static final String EMPTY_LIST = "Erm your list is empty, what are you tryna do?";
     public static final String FILE_PATH = "data/SavedTasks.txt";
+    public static final String FOUND_ITEM = "Here are the matching tasks in your list:";
 
 
     public static final String WELCOME_MESSAGE = """
@@ -23,7 +24,7 @@ public class Constants {
               \\___ \\| '_ \\ / _` | | | |  
               ____) | | | | (_| | |_| |  
              |_____/|_| |_|\\__,_|\\__, |  
-                                   __/ |  
+                                  __/ |  
                                   |___/   
             ____________________________________________________________
              Hello, I'm Siao!  (｡◕‿◕｡)
