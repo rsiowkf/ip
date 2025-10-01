@@ -19,7 +19,6 @@ public class Siao {
         Scanner input = new Scanner(System.in);
         ArrayList<Task> list = storage.loadTasks();
         String line = input.nextLine();
-        String command = line.split(" ")[0];
 
         while(!line.equalsIgnoreCase("bye")){
 
