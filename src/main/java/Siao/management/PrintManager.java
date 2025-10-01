@@ -58,6 +58,13 @@ public class PrintManager {
         }
     }
 
+    public static void printMarkDone(Task task) {
+        System.out.println("Good job on completing the task!");
+        System.out.print("  ");
+        System.out.printf(task.toString());
+        PrintManager.printDividerLine();
+    }
+
     public static void  printDividerLine(){
         System.out.println(Constants.DIVIDER);
     }

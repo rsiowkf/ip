@@ -1,6 +1,7 @@
 package Siao.Command;
 
 import Siao.Parser.Parser;
+import Siao.management.PrintManager;
 import Siao.task.Task;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class MarkCommand {
             throw new IllegalArgumentException("No item in the list, HOW TO MARK?");
         }
         list.get(markIndex).markDone();
-        list.get(markIndex).printMarkDone();
+        PrintManager.printMarkDone(list.get(markIndex));
         storage.saveAllTasks(list);
     }
 }
