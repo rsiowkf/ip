@@ -8,6 +8,7 @@ import Siao.task.Task;
 import Siao.task.Todo;
 import Siao.Parser.Parser;
 import Siao.management.Storage;
+import Siao.Command.markCommand;
 
 import java.util.ArrayList;
 
@@ -31,13 +32,7 @@ public class CommandHandler {
                 break;
 
             case "mark":
-                int markIndex = Parser.parseTaskIndex(splitInput);
-                if (list.isEmpty()) {
-                    throw new IllegalArgumentException("No item in the list, HOW TO MARK?");
-                }
-                list.get(markIndex).markDone();
-                list.get(markIndex).printMarkDone();
-                storage.saveAllTasks(list);
+                markCommand.markTask(splitInput, list, storage);
                 break;
 
             case "unmark":

@@ -1,5 +1,5 @@
 package Siao.UI;
-import Siao.management.CommandHandler;
+import Siao.Command.CommandHandler;
 import Siao.management.Constants;
 import Siao.task.Task;
 import Siao.management.Storage;
