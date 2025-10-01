@@ -14,6 +14,13 @@ public class Event extends Task {
         this.to = parseTo(description);
     }
 
+    /**
+     * Returns the description part of user's keyed in input if an Event is recorded
+     * throws an exception if the description is empty
+     * @param userInput user's keyed in input
+     * @return description of the Event
+     * @throws IllegalArgumentException if description is empty
+     */
     private static String parseDescription(String userInput) {
         String raw = Parser.preProcessInput(userInput, "event");
         String[] parts = raw.split("/from", 2);
@@ -23,6 +30,14 @@ public class Event extends Task {
 
         return parts[0].trim();
     }
+
+    /**
+     * Returns the "from" timing part of user's keyed in input if an Event is recorded
+     * throws an exception if "from" is empty
+     * @param userInput user's keyed in input
+     * @return "from" timing of the Event
+     * @throws IllegalArgumentException if "from"" is empty
+     */
 
     public static String parseFrom(String userInput) {
         if (!userInput.contains("/from")) {
@@ -34,6 +49,13 @@ public class Event extends Task {
         return subParts[0].trim();
     }
 
+    /**
+     * Returns the "to" part of user's keyed in input if an Event is recorded
+     * throws an exception if the "to" is empty
+     * @param userInput user's keyed in input
+     * @return "to" timing of the Event
+     * @throws IllegalArgumentException if "to" is empty
+     */
     public static String parseTo(String userInput) {
         if (!userInput.contains("/to")) {
             throw new IllegalArgumentException(Constants.ILLEGAL_END_MESSAGE);

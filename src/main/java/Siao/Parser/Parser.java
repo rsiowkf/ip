@@ -6,6 +6,12 @@ import Siao.task.Task;
 import Siao.task.Todo;
 
 public class Parser {
+
+    /**
+     * takes reference to the saved tasks list, and reformats the task to help load the task into the list
+     * @param line input is the saved task in the storage file
+     * @return the format of each task to be placed into the list
+     */
     public static Task parseTaskFromStorage(String line) {
         String[] parts =  line.split("\\|");
         String type = parts[0].trim();
@@ -51,6 +57,12 @@ public class Parser {
         return Integer.parseInt(userInput[1]) - 1;
     }
 
+    /**
+     *
+     * @param userInput the user input keyed in by user
+     * @param keyword the type of task given, deadline, event or todo
+     * @return tidied up format of the user's input
+     */
     public static String preProcessInput(String userInput, String keyword) {
         return userInput
                 .trim()
