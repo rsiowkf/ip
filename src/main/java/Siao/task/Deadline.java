@@ -1,7 +1,8 @@
 package Siao.task;
 
-import Siao.management.CommandHandler;
+import Siao.Command.CommandHandler;
 import Siao.management.Constants;
+import Siao.Parser.Parser;
 
 public class Deadline extends Task {
     public final String by;
@@ -12,7 +13,7 @@ public class Deadline extends Task {
     }
 
     private static String parseDescription(String userInput) {
-        String raw = CommandHandler.preprocessInput(userInput, "deadline");
+        String raw = Parser.preprocessInput(userInput, "deadline");
         String[] parts = raw.split(" ");
 
         if (parts[0].isEmpty()) {
@@ -26,7 +27,7 @@ public class Deadline extends Task {
         if (!userInput.contains("/by")) {
             throw new IllegalArgumentException(Constants.ILLEGAL_DEADLINE_MESSAGE);
         }
-        String raw = CommandHandler.preprocessInput(userInput, "by");
+        String raw = Parser.preprocessInput(userInput, "by");
         String[] parts =  raw.split("/by",2);
 
         return parts[1].trim();

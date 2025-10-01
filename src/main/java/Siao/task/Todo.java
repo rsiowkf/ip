@@ -1,6 +1,6 @@
 package Siao.task;
 
-import Siao.management.CommandHandler;
+import Siao.Parser.Parser;
 
 public class Todo extends Task {
     public Todo(String description) {
@@ -8,7 +8,7 @@ public class Todo extends Task {
     }
 
     private static String parseDescription(String userInput) {
-        String raw = CommandHandler.preprocessInput(userInput, "todo");
+        String raw = Parser.preprocessInput(userInput, "todo");
         if (raw.isEmpty()) {
             throw new IllegalArgumentException("☹ OOPS!!! The description of a TODO cannot be empty.");
         }

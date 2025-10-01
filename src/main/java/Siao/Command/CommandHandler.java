@@ -1,5 +1,7 @@
-package Siao.management;
+package Siao.Command;
 
+import Siao.management.Constants;
+import Siao.management.PrintManager;
 import Siao.task.Deadline;
 import Siao.task.Event;
 import Siao.task.Task;
@@ -10,14 +12,6 @@ import Siao.management.Storage;
 import java.util.ArrayList;
 
 public class CommandHandler {
-
-    public static String preprocessInput(String userInput, String keyword) {
-        return userInput
-                .trim()
-                .toLowerCase()
-                .substring(keyword.length())
-                .trim();
-    }
 
     private static Storage storage;
 

@@ -50,4 +50,12 @@ public class Parser {
     public static int parseTaskIndex(String[] userInput) {
         return Integer.parseInt(userInput[1]) - 1;
     }
+
+    public static String preprocessInput(String userInput, String keyword) {
+        return userInput
+                .trim()
+                .toLowerCase()
+                .substring(keyword.length())
+                .trim();
+    }
 }
