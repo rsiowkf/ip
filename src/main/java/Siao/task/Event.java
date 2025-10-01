@@ -15,7 +15,7 @@ public class Event extends Task {
     }
 
     private static String parseDescription(String userInput) {
-        String raw = Parser.preprocessInput(userInput, "event");
+        String raw = Parser.preProcessInput(userInput, "event");
         String[] parts = raw.split("/from", 2);
         if (parts[0].isEmpty()) {
             throw new IllegalArgumentException(Constants.ILLEGAL_ARGUMENT_MESSAGE);

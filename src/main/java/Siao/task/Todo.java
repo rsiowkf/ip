@@ -8,7 +8,7 @@ public class Todo extends Task {
     }
 
     private static String parseDescription(String userInput) {
-        String raw = Parser.preprocessInput(userInput, "todo");
+        String raw = Parser.preProcessInput(userInput, "todo");
         if (raw.isEmpty()) {
             throw new IllegalArgumentException("☹ OOPS!!! The description of a TODO cannot be empty.");
         }

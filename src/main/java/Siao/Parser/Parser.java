@@ -51,7 +51,7 @@ public class Parser {
         return Integer.parseInt(userInput[1]) - 1;
     }
 
-    public static String preprocessInput(String userInput, String keyword) {
+    public static String preProcessInput(String userInput, String keyword) {
         return userInput
                 .trim()
                 .toLowerCase()
