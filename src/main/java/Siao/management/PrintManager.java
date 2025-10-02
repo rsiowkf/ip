@@ -61,6 +61,7 @@ public class PrintManager {
     }
 
     public static void printMarkDone(Task task) {
+        PrintManager.printDividerLine();
         System.out.println("Good job on completing the task!");
         System.out.print("  ");
         System.out.printf(task.toString());
@@ -68,6 +69,7 @@ public class PrintManager {
     }
 
     public static void printMarkUndone(Task task) {
+        PrintManager.printDividerLine();
         System.out.println("Task is not done yet. Why you unmark?");
         System.out.print("  ");
         System.out.printf(task.toString());
