@@ -18,9 +18,6 @@ public class PrintManager {
             System.out.printf("%d. %s",indexNumber, task.toString());
             indexNumber++;
         }
-        if (list.isEmpty()) {
-            System.out.println(Constants.END_OF_LIST);
-        }
         printDividerLine();
     }
 
@@ -66,6 +63,7 @@ public class PrintManager {
 
     public static String printNumberOfTasks(Task task) {
         return String.format("Now you have %d task(s) in the list\n", Task.taskCounter);
+        return String.format("Now you have %d task(s) in the list\n", Task.getTaskCounter());
     }
 
 }

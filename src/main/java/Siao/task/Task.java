@@ -13,6 +13,10 @@ public abstract class Task {
         taskCounter++;
     }
 
+    public static int getTaskCounter() {
+        return taskCounter;
+    }
+
     public void reduceCounter() {
         taskCounter--;
     }
