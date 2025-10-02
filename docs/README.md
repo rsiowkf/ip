@@ -2,6 +2,7 @@
 ![img.png](img.png)
 
 A smart task management assistant that helps you track todos, deadlines and events! 
+
 All through natural language commands via your keyboard.
 
 ### Some example commands you can try:
@@ -17,7 +18,8 @@ Each addition of a task provides the user with the ability to understand a few t
 3. What exactly is the task?
 4. Are there timelines to meet?
 
-> [!NOTE] Notes about the command format:
+>  [💡 **NOTE:**]
+Notes about the command format:
 > 
 > - Words in `UPPER_CASE` are the parameters supplied by the user
 >   - e.g deadline DESCRIPTION /by DEADLINE
@@ -129,7 +131,7 @@ Finds if the task exists in the list
 
 Format: `find KEYWORD`
 
-> [!IMPORTANT]
+> [💡 **NOTE:**]
 > User can only input ONE keyword
 
 Example: `find quiz`
