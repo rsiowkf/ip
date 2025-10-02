@@ -32,18 +32,6 @@ public class PrintManager {
         printDividerLine();
     }
 
-    public static void printErrorEmptyMessage() {
-        printDividerLine();
-        System.out.println(Constants.EMPTY_ERROR_MESSAGE);
-        printDividerLine();
-    }
-
-    public static void printIllegalMessage() {
-        printDividerLine();
-        System.out.println(Constants.ILLEGAL_MESSAGE);
-        printDividerLine();
-    }
-
     public static void printDeletedTask(ArrayList<Task> list, int taskIndex) {
         if (list.isEmpty()) {
             System.out.println(Constants.EMPTY_LIST);
