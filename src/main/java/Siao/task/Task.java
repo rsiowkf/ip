@@ -1,16 +1,31 @@
 package Siao.task;
-import Siao.UI.Siao;
-import Siao.management.PrintManager;
+
+/**
+ * Represents an abstract task with a description and completion status.
+ * Serves as the base class for specific task types such as Todo, Deadline, or Event.
+ * Each task automatically increases the global task counter upon creation.
+ * Subclasses are expected to override methods such as {@link #getType()} and {@link #getDeadline()} if applicable.
+ */
 
 public abstract class Task {
     protected String description;
     protected boolean isDone;
     private static int taskCounter;
 
+    /**
+     * Constructs a new task with the specified description.
+     * The task is initially marked as not done and increments the global task counter.
+     *
+     * @param description the description of the task
+     */
     public Task(String description) { // constructor of the task
         this.description = description;
         this.isDone = false;
         taskCounter++;
+    }
+
+    public static int getTaskCounter() {
+        return taskCounter;
     }
 
     public void reduceCounter() {
@@ -44,26 +59,15 @@ public abstract class Task {
         isDone = false;
     }
 
-    public void printMarkDone() {
-        System.out.println("Good job on completing the task!");
-        System.out.print("  ");
-        System.out.printf(toString());
-        PrintManager.printDividerLine();
-    }
-
-    public void printMarkUndone() {
-        System.out.println("DO YOUR JOBBBBBBBBBBBBBBB!");
-        System.out.print("  ");
-        System.out.printf(toString());
-        PrintManager.printDividerLine();
-    }
-
+    /**
+     * Returns a formatted string representation of the task,
+     * including type, status, and description.
+     *
+     * @return the string representation of the task
+     */
     public String toString() {
         return String.format("[%s][%s] %s\n",
                 getType(), getStatusIcon(), this.description);
     }
 
-    public String printNumberOfTasks() {
-        return String.format("Now you have %d task(s) in the list\n",  taskCounter);
-    }
 }

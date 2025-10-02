@@ -12,6 +12,14 @@ public class Deadline extends Task {
         this.by = parseBy(description);
     }
 
+    /**
+     * returns the parsed description for deadlines keyed in by user
+     * if the description is empty, throws an exception
+     * @param userInput user's keyed in input
+     * @return description part of the input only
+     * @throws IllegalArgumentException if description is empty
+     */
+
     private static String parseDescription(String userInput) {
         String raw = Parser.preProcessInput(userInput, "deadline");
         String[] parts = raw.split("/by ");
@@ -23,6 +31,13 @@ public class Deadline extends Task {
         return parts[0].trim();
     }
 
+    /**
+     * returns the parsed deadline for deadlines keyed in by user
+     * if deadline is empty, throws an exception
+     * @param userInput user's keyed in input
+     * @return the deadline of the task
+     * @throws IllegalArgumentException if deadline is empty
+     */
     public static String parseBy(String userInput) {
         if (!userInput.contains("/by")) {
             throw new IllegalArgumentException(Constants.ILLEGAL_DEADLINE_MESSAGE);

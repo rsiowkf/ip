@@ -6,6 +6,12 @@ import Siao.task.Task;
 import Siao.task.Todo;
 
 public class Parser {
+
+    /**
+     * takes reference to the saved tasks list, and reformats the task to help load the task into the list
+     * @param line input is the saved task in the storage file
+     * @return the format of each task to be placed into the list
+     */
     public static Task parseTaskFromStorage(String line) {
         String[] parts =  line.split("\\|");
         String type = parts[0].trim();
@@ -51,6 +57,17 @@ public class Parser {
         return Integer.parseInt(userInput[1]) - 1;
     }
 
+    /**
+     * Preprocesses the given user input by removing leading/trailing whitespace,
+     * converting it to lowercase, and stripping out a specified keyword from the beginning.
+     * <p>
+     * The method assumes that the input string starts with the given keyword.
+     * After removing the keyword, any surrounding whitespace is trimmed again.
+     *
+     * @param userInput the full input string provided by the user
+     * @param keyword   the keyword to remove from the beginning of the input
+     * @return the processed input string with the keyword removed, in lowercase and trimmed
+     */
     public static String preProcessInput(String userInput, String keyword) {
         return userInput
                 .trim()

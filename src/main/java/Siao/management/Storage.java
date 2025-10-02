@@ -12,15 +12,28 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/**
+ * Handles the storage and retrieval of Task objects to and from a file.
+ * Provides methods to save individual tasks, save all tasks, and load tasks from storage.
+ */
 public class Storage {
     private final File storageFile;
 
+    /**
+     * Constructs a Storage object for a given file path.
+     * Ensures that the storage file exists or creates it if it does not.
+     *
+     * @param filePath the path to the file where tasks are stored
+     */
     public Storage (String filePath) {
         this.storageFile = new File(filePath);
         ensureFileExists();
     }
 
+    /**
+     * Ensures that the storage file and its parent directories exist.
+     * If the file or directories do not exist, they are created.
+     */
     private void ensureFileExists() {
         try {
             File parentDir = storageFile.getParentFile();
@@ -45,6 +58,13 @@ public class Storage {
         }
     }
 
+    /**
+     * Converts a Task object in the list into a string format suitable for storage.
+     * The format is: "type | status | description | additional info".
+     *
+     * @param task the Task object to convert
+     * @return a formatted string representing the task for storage
+     */
     public String savedTaskToString(Task task) {
         String type = task.getType();
         String desc = task.getDescription();
@@ -63,6 +83,12 @@ public class Storage {
         }
     }
 
+    /**
+     * Overwrites the storage file with all tasks in the given list.
+     *
+     * @param tasks the list of Task objects to save
+     * @throws RuntimeException if an I/O error occurs while writing to the file
+     */
     public void saveAllTasks(ArrayList<Task> tasks) {
         try {
             FileWriter writer = new FileWriter(storageFile, false);
@@ -75,6 +101,12 @@ public class Storage {
         }
     }
 
+    /**
+     * Loads all tasks from the storage file into an ArrayList.
+     * Uses the Parser class to convert each line of the file into a Task object.
+     *
+     * @return an ArrayList containing all loaded Task objects
+     */
     public ArrayList<Task> loadTasks(){
         ArrayList<Task> list = new ArrayList<>();
 
