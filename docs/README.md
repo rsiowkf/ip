@@ -158,3 +158,14 @@ Got it. I've deleted this task!
 Now you have 8 task(s) in the list
 ---------------------------------
 ```
+
+## Exit Program
+Exits the program
+
+Example: `bye bye`
+
+```
+expected output
+---------------------------------
+Bye bye! Do remember to complete your tasks!
+```
