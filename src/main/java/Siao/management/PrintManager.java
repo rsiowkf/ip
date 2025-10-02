@@ -65,6 +65,13 @@ public class PrintManager {
         PrintManager.printDividerLine();
     }
 
+    public static void printMarkUndone(Task task) {
+        System.out.println("Task is not done yet. Why you unmark?");
+        System.out.print("  ");
+        System.out.printf(task.toString());
+        PrintManager.printDividerLine();
+    }
+
     public static void  printDividerLine(){
         System.out.println(Constants.DIVIDER);
     }
