@@ -36,14 +36,9 @@ public class Event extends Task {
      * throws an exception if "from" is empty
      * @param userInput user's keyed in input
      * @return "from" timing of the Event
-     * @throws IllegalArgumentException if "from"" is empty
      */
 
     public static String parseFrom(String userInput) {
-        if (!userInput.contains("/from")) {
-            throw new IllegalArgumentException(Constants.ILLEGAL_START_MESSAGE);
-        }
-
         String[] parts = userInput.split("/from", 2);
         String[] subParts = parts[1].split("/to", 2);
         return subParts[0].trim();
@@ -54,13 +49,8 @@ public class Event extends Task {
      * throws an exception if the "to" is empty
      * @param userInput user's keyed in input
      * @return "to" timing of the Event
-     * @throws IllegalArgumentException if "to" is empty
      */
     public static String parseTo(String userInput) {
-        if (!userInput.contains("/to")) {
-            throw new IllegalArgumentException(Constants.ILLEGAL_END_MESSAGE);
-        }
-
         String[] parts = userInput.split("/to", 2);
         return parts[1].trim();
     }

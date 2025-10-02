@@ -36,12 +36,8 @@ public class Deadline extends Task {
      * if deadline is empty, throws an exception
      * @param userInput user's keyed in input
      * @return the deadline of the task
-     * @throws IllegalArgumentException if deadline is empty
      */
     public static String parseBy(String userInput) {
-        if (!userInput.contains("/by")) {
-            throw new IllegalArgumentException(Constants.ILLEGAL_DEADLINE_MESSAGE);
-        }
         String raw = Parser.preProcessInput(userInput, "by");
         String[] parts =  raw.split("/by",2);
 

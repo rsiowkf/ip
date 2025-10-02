@@ -6,8 +6,6 @@ public class Todo extends Task {
     public Todo(String description) {
         super(parseDescription(description));
     }
-
-
     /**
      * returns the description of the event
      * @param userInput user's keyed in input
