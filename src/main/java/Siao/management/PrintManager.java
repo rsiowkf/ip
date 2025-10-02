@@ -28,7 +28,7 @@ public class PrintManager {
         printDividerLine();
         System.out.println("Got it. I've added this task!");
         System.out.print("   " + task.toString());
-        System.out.print(task.printNumberOfTasks());
+        System.out.print(printNumberOfTasks(task));
         printDividerLine();
     }
 
@@ -52,7 +52,7 @@ public class PrintManager {
             System.out.println("Got it. I've deleted this task!");
             System.out.printf("  " + list.get(taskIndex).toString());
             list.get(taskIndex).reduceCounter();
-            System.out.print(list.get(taskIndex).printNumberOfTasks());
+            System.out.print(printNumberOfTasks(list.get(taskIndex)));
             printDividerLine();
             list.remove(taskIndex);
         }
@@ -74,6 +74,10 @@ public class PrintManager {
 
     public static void  printDividerLine(){
         System.out.println(Constants.DIVIDER);
+    }
+
+    public static String printNumberOfTasks(Task task) {
+        return String.format("Now you have %d task(s) in the list\n", Task.taskCounter);
     }
 
 }

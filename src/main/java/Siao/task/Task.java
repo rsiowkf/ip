@@ -44,13 +44,15 @@ public abstract class Task {
         isDone = false;
     }
 
-
+    /**
+     * Returns a formatted string representation of the task,
+     * including type, status, and description.
+     *
+     * @return the string representation of the task
+     */
     public String toString() {
         return String.format("[%s][%s] %s\n",
                 getType(), getStatusIcon(), this.description);
     }
 
-    public String printNumberOfTasks() {
-        return String.format("Now you have %d task(s) in the list\n",  taskCounter);
-    }
 }
