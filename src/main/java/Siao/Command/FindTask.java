@@ -8,7 +8,12 @@ import java.util.ArrayList;
 public class FindTask {
     public static void returnTask (String line, ArrayList<Task> list) {
         String[] parts = line.split(" ");
+        if (parts.length < 2) {
+            throw new IllegalArgumentException(Constants.WRONG_FIND);
+        }
+
         String keyword = parts[1];
+
         boolean found = false;
 
         for (Task task : list) {
@@ -28,6 +33,8 @@ public class FindTask {
                 }
             }
             System.out.printf(Constants.DIVIDER + "\n");
+        } else {
+            throw new IllegalArgumentException(Constants.WRONG_FIND);
         }
 
     }
