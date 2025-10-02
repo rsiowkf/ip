@@ -28,16 +28,14 @@ public class Siao {
         ArrayList<Task> list = storage.loadTasks();
         String line = input.nextLine();
 
-        while(!line.equalsIgnoreCase("bye")){
-
+        while(!line.toLowerCase().contains("bye")){
             try {
                 CommandHandler.handleCommand(line, list);
-                line = input.nextLine();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
                 System.out.print(">>>   ");
-                line = input.nextLine();
             }
+            line = input.nextLine();
         }
 
         System.out.println(Constants.DIVIDER);
