@@ -10,6 +10,14 @@ import java.util.ArrayList;
 
 public class Siao {
 
+    /**
+     * Entry point of the application. Initializes essential components such as
+     * the storage handler and task list, then continuously reads and processes
+     * user commands from standard input until the user enters "bye"
+     *
+     * @param args input given by users
+     */
+
     public static void main(String[] args) {
         System.out.print(Constants.WELCOME_MESSAGE);
 

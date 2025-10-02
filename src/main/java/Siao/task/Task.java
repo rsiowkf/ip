@@ -1,12 +1,23 @@
 package Siao.task;
-import Siao.UI.Siao;
-import Siao.management.PrintManager;
+
+/**
+ * Represents an abstract task with a description and completion status.
+ * Serves as the base class for specific task types such as Todo, Deadline, or Event.
+ * Each task automatically increases the global task counter upon creation.
+ * Subclasses are expected to override methods such as {@link #getType()} and {@link #getDeadline()} if applicable.
+ */
 
 public abstract class Task {
     protected String description;
     protected boolean isDone;
     private static int taskCounter;
 
+    /**
+     * Constructs a new task with the specified description.
+     * The task is initially marked as not done and increments the global task counter.
+     *
+     * @param description the description of the task
+     */
     public Task(String description) { // constructor of the task
         this.description = description;
         this.isDone = false;

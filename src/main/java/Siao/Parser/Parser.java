@@ -58,10 +58,15 @@ public class Parser {
     }
 
     /**
+     * Preprocesses the given user input by removing leading/trailing whitespace,
+     * converting it to lowercase, and stripping out a specified keyword from the beginning.
+     * <p>
+     * The method assumes that the input string starts with the given keyword.
+     * After removing the keyword, any surrounding whitespace is trimmed again.
      *
-     * @param userInput the user input keyed in by user
-     * @param keyword the type of task given, deadline, event or todo
-     * @return tidied up format of the user's input
+     * @param userInput the full input string provided by the user
+     * @param keyword   the keyword to remove from the beginning of the input
+     * @return the processed input string with the keyword removed, in lowercase and trimmed
      */
     public static String preProcessInput(String userInput, String keyword) {
         return userInput

@@ -7,6 +7,11 @@ import Siao.task.Todo;
 import Siao.management.Storage;
 import java.util.ArrayList;
 
+
+/**
+ * Handles user commands and delegates execution to specific command classes.
+ * Maintains a reference to the Storage object for saving and updating tasks.
+ */
 public class CommandHandler {
 
     private static Storage storage;
@@ -15,7 +20,15 @@ public class CommandHandler {
         storage = s;
     }
 
-
+    /**
+     * Processes a user input command and performs the corresponding action
+     * on the given task list. Supports commands such as list, mark, unmark,
+     * delete, deadline, event, todo, and find.
+     *
+     * @param line the raw user input command
+     * @param list the ArrayList of Task objects to operate on
+     * @throws IllegalArgumentException if the command is unknown or has an invalid format
+     */
     public static void handleCommand(String line, ArrayList<Task> list){
         String[] splitInput = line.split(" ");
         String command = splitInput[0];

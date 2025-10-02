@@ -10,7 +10,7 @@ public class Todo extends Task {
 
     /**
      * returns the description of the event
-     * @param userInput
+     * @param userInput user's keyed in input
      * @return description of Event
      * @throws IllegalArgumentException if description is empty
      */
