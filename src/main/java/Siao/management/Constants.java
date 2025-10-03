@@ -16,6 +16,8 @@ public class Constants {
     public static final String MARK_WRONGLY = "Are you sure that task is valid???? CHOOSE ANOTHER TASK TO MARK";
     public static final String UNMARK_WRONGLY = "Are you sure that task is valid???? CHOOSE ANOTHER TASK TO UNMARK";
     public static final String WRONG_FIND = "No such item in the list. Please try again.";
+    public static final String ERROR_INDEX = "Invalid task index. Input a correct index";
+
 
     public static final String WELCOME_MESSAGE = """
             ____________________________________________________________

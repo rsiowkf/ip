@@ -12,6 +12,10 @@ public class UnmarkCommand {
     public static void unmarkTask (String[] splitInput, ArrayList<Task> list, Storage storage) {
         int unmarkIndex = Parser.parseTaskIndex(splitInput);
 
+        if (unmarkIndex == -1) {
+            throw new IllegalArgumentException(Constants.ERROR_INDEX);
+        }
+
         if (list.isEmpty()) {
             throw new IllegalArgumentException("No item in the list, HOW TO UNMARK?");
         } else if (Integer.parseInt(splitInput[1]) > list.size()) {
