@@ -53,6 +53,19 @@ public class Parser {
         return task;
     }
 
+    /**
+     * Parses the task index from the user input array.
+     * <p>
+     * Expects the task number to be at position 1 of the array. Converts the
+     * 1-based user input to a 0-based index for internal use.
+     * </p>
+     *
+     * @param userInput an array of user input tokens, where the second element
+     *                  (index 1) should be the task number
+     * @return the 0-based task index if parsing is successful; returns -1 if
+     *         the input is not a valid integer
+     * @throws IllegalArgumentException if the userInput array has fewer than 2 elements
+     */
     public static int parseTaskIndex(String[] userInput) {
 
         int taskIndex;
