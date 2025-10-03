@@ -35,7 +35,8 @@ public class PrintManager {
             System.out.printf("%d. %s",indexNumber, task.toString());
             indexNumber++;
         }
-        printDividerLine();
+        System.out.println(Constants.END_OF_LIST);
+
     }
 
     public static void printAddedTask(Task task) {
