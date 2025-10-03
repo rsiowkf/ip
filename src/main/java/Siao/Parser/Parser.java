@@ -54,7 +54,19 @@ public class Parser {
     }
 
     public static int parseTaskIndex(String[] userInput) {
-        return Integer.parseInt(userInput[1]) - 1;
+
+        int taskIndex;
+
+        if (userInput.length < 2) {
+            throw new IllegalArgumentException("Invalid task index");
+        }
+
+        try {
+            taskIndex = Integer.parseInt(userInput[1]) - 1;
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+        return taskIndex;
     }
 
     /**
