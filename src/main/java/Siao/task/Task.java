@@ -10,7 +10,7 @@ package Siao.task;
 public abstract class Task {
     protected String description;
     protected boolean isDone;
-    private static int taskCounter;
+    private static int taskCounter = 0;
 
     /**
      * Constructs a new task with the specified description.
@@ -21,7 +21,6 @@ public abstract class Task {
     public Task(String description) { // constructor of the task
         this.description = description;
         this.isDone = false;
-        taskCounter++;
     }
 
     public static int getTaskCounter() {
@@ -30,6 +29,10 @@ public abstract class Task {
 
     public void reduceCounter() {
         taskCounter--;
+    }
+
+    public void increaseCounter() {
+        taskCounter++;
     }
 
     public String getStatusIcon() {

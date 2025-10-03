@@ -41,6 +41,9 @@ public class Deadline extends Task {
         String raw = Parser.preProcessInput(userInput, "by");
         String[] parts =  raw.split("/by",2);
 
+        if (parts[1].isEmpty()) {
+            throw new IllegalArgumentException(Constants.ILLEGAL_DEADLINE_MESSAGE);
+        }
         return parts[1].trim();
     }
 

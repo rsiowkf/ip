@@ -39,11 +39,11 @@ public class PrintManager {
 
     }
 
-    public static void printAddedTask(Task task) {
+    public static void printAddedTask(Task task, ArrayList<Task> list) {
         printDividerLine();
         System.out.println("Got it. I've added this task!");
         System.out.print("   " + task.toString());
-        System.out.print(printNumberOfTasks(task));
+        System.out.print(printNumberOfTasks(list));
         printDividerLine();
     }
 
@@ -54,10 +54,9 @@ public class PrintManager {
             printDividerLine();
             System.out.println("Got it. I've deleted this task!");
             System.out.printf("  " + list.get(taskIndex).toString());
-            list.get(taskIndex).reduceCounter();
-            System.out.print(printNumberOfTasks(list.get(taskIndex)));
-            printDividerLine();
             list.remove(taskIndex);
+            System.out.print(printNumberOfTasks(list));
+            printDividerLine();
         }
     }
 
@@ -87,8 +86,8 @@ public class PrintManager {
      * @param task any task instance (used only to reference the task counter)
      * @return a formatted task counter message
      */
-    public static String printNumberOfTasks(Task task) {
-        return String.format("Now you have %d task(s) in the list\n", Task.getTaskCounter());
+    public static String printNumberOfTasks(ArrayList<Task> list) {
+        return String.format("Now you have %d task(s) in the list\n", list.size());
     }
 
 }

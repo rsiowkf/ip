@@ -35,7 +35,8 @@ public class AddEvent {
 
         Event newEvent = new Event(line);
         list.add(newEvent);
-        PrintManager.printAddedTask(newEvent);
+        newEvent.increaseCounter();
+        PrintManager.printAddedTask(newEvent, list);
         storage.saveTask(newEvent);
     }
 

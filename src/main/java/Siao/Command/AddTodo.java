@@ -23,7 +23,8 @@ public class AddTodo {
     public static void newTodo(ArrayList<Task> list, String line, Storage storage){
         Todo newTodo = new Todo(line);
         list.add(newTodo);
-        PrintManager.printAddedTask(newTodo);
+        newTodo.increaseCounter();
+        PrintManager.printAddedTask(newTodo, list);
         storage.saveTask(newTodo);
     }
 }
