@@ -33,7 +33,8 @@ public class AddDeadline {
 
         Deadline newDeadline = new Deadline(line);
         list.add(newDeadline);
-        PrintManager.printAddedTask(newDeadline);
+        newDeadline.increaseCounter();
+        PrintManager.printAddedTask(newDeadline, list);
         storage.saveTask(newDeadline);
     }
 

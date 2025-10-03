@@ -41,6 +41,10 @@ public class Event extends Task {
     public static String parseFrom(String userInput) {
         String[] parts = userInput.split("/from", 2);
         String[] subParts = parts[1].split("/to", 2);
+
+        if (subParts[0].isEmpty()) {
+            throw new IllegalArgumentException(Constants.ILLEGAL_START_MESSAGE);
+        }
         return subParts[0].trim();
     }
 
@@ -52,6 +56,11 @@ public class Event extends Task {
      */
     public static String parseTo(String userInput) {
         String[] parts = userInput.split("/to", 2);
+
+        if (parts[1].isEmpty()) {
+            throw new IllegalArgumentException(Constants.ILLEGAL_END_MESSAGE);
+        }
+
         return parts[1].trim();
     }
 
